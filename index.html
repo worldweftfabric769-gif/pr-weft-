@@ -441,6 +441,21 @@ select.pop{animation:pop .5s var(--ease)}
 footer{border-top:1px solid var(--thread);padding:clamp(40px,5vw,64px) var(--rail) 46px;max-width:var(--maxw);margin:0 auto}
 .foot{display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:flex-start}
 .foot nav{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.legal{max-width:780px}
+.legal .upd{color:var(--ash);font-size:.86rem;margin-top:14px}
+.legal h2{margin-top:10px}
+.legal h3{font-size:1.14rem;color:var(--champagne-lt);margin:38px 0 10px;display:flex;gap:14px;align-items:baseline}
+.legal h3 span{font-size:.9rem;color:var(--champagne);opacity:.8;min-width:26px}
+.legal p,.legal li{color:#CFC8BC;font-size:.95rem;max-width:none}
+.legal ul{margin:0 0 1em;padding-left:1.15em}
+.legal li{margin-bottom:7px}
+.legal li::marker{color:var(--champagne)}
+.legal a{color:var(--champagne-lt)}
+.legal .jump{display:inline-flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+.legal .jump a{font-size:.84rem;text-decoration:none;border:1px solid var(--thread);border-radius:99px;padding:7px 16px;
+  transition:background .3s}
+.legal .jump a:hover{background:rgba(203,176,124,.12)}
+.legal .part{border-top:1px solid var(--thread);margin-top:70px;padding-top:50px}
 .foot nav a{text-decoration:none;font-size:.88rem;color:var(--ash);transition:color .3s,transform .3s}
 .foot nav a:hover{color:var(--champagne-lt);transform:translateX(5px)}
 
@@ -827,11 +842,119 @@ footer{border-top:1px solid var(--thread);padding:clamp(40px,5vw,64px) var(--rai
         <div class="field wide"><label for="f-msg">Specification and anything else we should know</label>
           <textarea id="f-msg" name="msg" placeholder="GSM, width, shades, Incoterm, delivery date"></textarea></div>
         <p class="form-note" id="f-note" aria-live="polite">Goes straight to our sales team. We reply within two working days.</p>
+        <p class="form-note">By sending an enquiry you agree to our <a href="#/terms">terms and privacy notice</a>.</p>
         <div class="cta-row" style="grid-column:1/-1;margin-top:0">
           <button class="btn mag" type="submit" id="f-send"><span>Send enquiry</span></button>
           <a class="btn ghost mag" id="wa" href="#" target="_blank" rel="noopener"><span>Send on WhatsApp</span></a>
         </div>
       </form>
+    </div>
+  </section>
+</div>
+
+
+<!-- ============ TERMS & PRIVACY ============ -->
+<div class="page" id="p-terms">
+  <section>
+    <div class="legal">
+      <div class="rv">
+        <h2>Terms and conditions</h2>
+        <p class="upd">Last updated: 22 September 2026</p>
+        <p>These terms apply to the use of worldweftfabric.com and to every quotation, sample and order from <strong>Worldweft Fabric LLP</strong>, Plot No. 190–196, Gopi Industrial, NH-48, Pipodara, Mangrol, Kosamba, Surat, Gujarat 394110, India (IEC AAFFW4081Q), referred to as “we” or “us”. By using this website or placing an order, the buyer accepts these terms. Where a signed proforma invoice, sales contract or letter of credit says something different for a particular order, that document takes priority for that order.</p>
+        <div class="jump"><a href="#/terms" data-scroll="t-terms">Terms of trade</a><a href="#/terms" data-scroll="t-privacy">Privacy notice</a></div>
+      </div>
+
+      <div id="t-terms">
+      <h3 class="rv"><span>01</span>Use of this website</h3>
+      <p class="rv">The website gives general information about our fabrics and services. Photos show representative qualities; shade and texture can look different on screen. Specifications such as weight, width and composition are typical ranges and are confirmed for each order in the proforma invoice. Photos, text, the World Weft name and logo may not be copied or reused without our written permission.</p>
+
+      <h3 class="rv"><span>02</span>Enquiries and quotations</h3>
+      <ul class="rv">
+        <li>An enquiry sent through this website, email or WhatsApp does not create an order.</li>
+        <li>Quotations are valid for 15 days from the date of issue unless stated otherwise, as yarn and freight prices change.</li>
+        <li>Prices are in the currency and on the Incoterm stated in the quotation. Freight, insurance, duties and bank charges are included only where that Incoterm includes them.</li>
+      </ul>
+
+      <h3 class="rv"><span>03</span>Samples</h3>
+      <p class="rv">Header cuts are free. Courier charges for lab dips and counter samples may be billed or adjusted against the first order. Written approval of a counter sample (email is enough) fixes the quality, weight, width and shade standard for bulk production.</p>
+
+      <h3 class="rv"><span>04</span>Order confirmation</h3>
+      <ul class="rv">
+        <li>An order is confirmed only when we have issued a proforma invoice, the buyer has accepted it in writing, and we have received the advance payment or an acceptable letter of credit.</li>
+        <li>Minimum order is 1,000 metres per colour per quality, and 3,000 metres per shipment for a first order, unless agreed otherwise in writing.</li>
+        <li>Changes after confirmation (shade, quantity, packing or destination) need our written agreement and may change the price and lead time.</li>
+      </ul>
+
+      <h3 class="rv"><span>05</span>Payment</h3>
+      <ul class="rv">
+        <li>Standard terms are 30% advance by telegraphic transfer and the balance against a scanned copy of the bill of lading, or an irrevocable letter of credit at sight through a bank acceptable to us.</li>
+        <li>Bank charges outside India are for the buyer's account.</li>
+        <li>Original shipping documents are released only after full payment, or through the bank under the letter of credit. We may hold goods or documents while any amount is overdue.</li>
+      </ul>
+
+      <h3 class="rv"><span>06</span>Production, delivery and quantity</h3>
+      <ul class="rv">
+        <li>Lead time is normally 15–25 days from approved sample and receipt of advance, plus transit time. Lead times are estimates; we will inform the buyer promptly of any delay.</li>
+        <li>Delivery, transfer of risk and division of costs follow the Incoterm (Incoterms® 2020) stated in the proforma invoice.</li>
+        <li>The shipped quantity may vary by up to ±5% of the ordered quantity per colour and is invoiced on the actual quantity shipped.</li>
+      </ul>
+
+      <h3 class="rv"><span>07</span>Quality standards and tolerances</h3>
+      <ul class="rv">
+        <li>Fabric is inspected under the 4-point system; a lot is accepted at under 20 points per 100 m².</li>
+        <li>Weight: ±5% of the approved GSM. Width: ±1 inch (±2.5 cm) of the agreed width.</li>
+        <li>Dimensional change on washing: within ±3% (ISO 6330 / AATCC 135) unless another figure is agreed.</li>
+        <li>Shade: a commercially acceptable variation between rolls and between lots is normal in piece dyeing. It is controlled with shade continuity cards shared before dispatch.</li>
+      </ul>
+
+      <h3 class="rv"><span>08</span>Inspection by the buyer</h3>
+      <p class="rv">The buyer, the buyer's agent or a third-party inspection agency is welcome to inspect goods at our premises before dispatch, with at least 3 working days' notice. Inspection costs are for the buyer. Where goods have been inspected and passed before shipment, later claims on points covered by that inspection will not be accepted.</p>
+
+      <h3 class="rv"><span>09</span>Claims</h3>
+      <ul class="rv">
+        <li>Quality or quantity claims must be made in writing within 15 days of the goods arriving at the port of discharge, and before the fabric is cut, washed or processed.</li>
+        <li>A claim must include roll numbers, photographs and a sample cut from the affected rolls.</li>
+        <li>For a valid claim we will, at our choice, replace, credit or refund the affected quantity. Our liability is limited to the invoice value of the affected fabric.</li>
+        <li>We are not liable for loss of profit, garment-making costs or other indirect losses. Damage in transit is claimed under the cargo insurance or against the carrier.</li>
+      </ul>
+
+      <h3 class="rv"><span>10</span>Cancellation</h3>
+      <p class="rv">An order may be cancelled before production starts; the advance is refunded after deducting costs already incurred (such as yarn, samples and bank charges). Once production has started, the advance is not refundable and the buyer pays for fabric already dyed or made to the buyer's specification.</p>
+
+      <h3 class="rv"><span>11</span>Force majeure</h3>
+      <p class="rv">We are not liable for delay or failure caused by events beyond our reasonable control, including natural disasters, epidemics, war, strikes, port congestion, shipping-line disruption, government action, or power and utility failures. Delivery dates are extended for the duration of such an event.</p>
+
+      <h3 class="rv"><span>12</span>Governing law</h3>
+      <p class="rv">These terms are governed by the laws of India. Both parties will first try to settle any dispute by discussion; if that fails, the courts at Surat, Gujarat have exclusive jurisdiction.</p>
+      </div>
+
+      <div id="t-privacy" class="part">
+        <h2 class="rv">Privacy notice</h2>
+        <h3 class="rv"><span>01</span>What we collect</h3>
+        <p class="rv">When you send an enquiry we receive your name, company, email address, country, port of discharge, fabric, quantity and message. If you contact us on WhatsApp or by email, we receive what you send there.</p>
+
+        <h3 class="rv"><span>02</span>Why we use it</h3>
+        <p class="rv">Only to reply to you, prepare quotations and samples, and process and ship orders. We do not sell your details and do not add you to marketing lists without your consent.</p>
+
+        <h3 class="rv"><span>03</span>Services we use</h3>
+        <ul class="rv">
+          <li>The enquiry form is delivered to our inbox through FormSubmit (formsubmit.co), a third-party form service.</li>
+          <li>Emails are handled by our email provider; WhatsApp messages are handled under WhatsApp's own terms.</li>
+          <li>The website loads fonts from Google Fonts, which receives your IP address when the page loads.</li>
+        </ul>
+
+        <h3 class="rv"><span>04</span>Cookies</h3>
+        <p class="rv">This website does not use advertising cookies, tracking cookies or analytics.</p>
+
+        <h3 class="rv"><span>05</span>How long we keep it</h3>
+        <p class="rv">For as long as needed for our business relationship with you, and for the period required by Indian tax and export record-keeping rules.</p>
+
+        <h3 class="rv"><span>06</span>Your choices</h3>
+        <p class="rv">You can ask for a copy of your data, or ask us to correct or delete it, by writing to <a href="mailto:sales@worldweftfabric.com">sales@worldweftfabric.com</a>. We handle personal data in line with applicable law, including India's Digital Personal Data Protection Act, 2023.</p>
+
+        <h3 class="rv"><span>07</span>Contact</h3>
+        <p class="rv">Worldweft Fabric LLP, Plot No. 190–196, Gopi Industrial, NH-48, Pipodara, Mangrol, Kosamba, Surat, Gujarat 394110, India. Email <a href="mailto:sales@worldweftfabric.com">sales@worldweftfabric.com</a>, phone <a href="tel:+917779086329">+91 77790 86329</a>.</p>
+      </div>
     </div>
   </section>
 </div>
@@ -855,6 +978,7 @@ footer{border-top:1px solid var(--thread);padding:clamp(40px,5vw,64px) var(--rai
     <nav>
       <a href="#/collections">Collections</a><a href="#/export">Export</a>
       <a href="#/quality">Quality</a><a href="#/contact">Enquiry</a>
+      <a href="#/terms">Terms &amp; privacy</a>
     </nav>
     <div class="small muted">
       sales@worldweftfabric.com<br>+91 77790 86329<br><span id="yr"></span> World Weft Fabric
@@ -1044,11 +1168,21 @@ footer{border-top:1px solid var(--thread);padding:clamp(40px,5vw,64px) var(--rai
     restart();
   });
 
+  /* ---- in-page jumps on the terms page ---- */
+  document.querySelectorAll('[data-scroll]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      var t=document.getElementById(a.dataset.scroll);
+      if(t)t.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+    });
+  });
+
   /* ---- router with curtain wipe ---- */
-  var pages={'/':'p-home','/collections':'p-collections','/export':'p-export','/quality':'p-quality','/contact':'p-contact'};
+  var pages={'/':'p-home','/collections':'p-collections','/export':'p-export','/quality':'p-quality','/contact':'p-contact','/terms':'p-terms'};
   var titles={'/':'World Weft Fabric — Fabric manufacturer and exporter, Surat, India',
     '/collections':'Collections — World Weft Fabric','/export':'Export capability — World Weft Fabric',
-    '/quality':'Quality and certification — World Weft Fabric','/contact':'Send an enquiry — World Weft Fabric'};
+    '/quality':'Quality and certification — World Weft Fabric','/contact':'Send an enquiry — World Weft Fabric',
+    '/terms':'Terms and privacy — World Weft Fabric'};
   var navLinks=document.querySelectorAll('nav.main a'),curtain=document.getElementById('curtain'),first=true;
 
   function paint(h){
