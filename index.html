@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>World Weft Fabric — Fabric manufacturer and exporter, Surat, India</title>
+<meta name="description" content="World Weft Fabric manufactures and exports woven and knitted fabrics from Surat, India — viscose, crepe, satin, cotton, slub and knits — to buyers worldwide.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Archivo:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --noir:#080706;
+  --noir-2:#100E0C;
+  --noir-3:#191512;
+  --champagne:#CBB07C;
+  --champagne-lt:#F0E2C6;
+  --ecru:#EDE7DC;
+  --ash:#948B80;
+  --thread:rgba(203,176,124,.26);
+  --thread-soft:rgba(237,231,220,.09);
+  --glass:rgba(255,255,255,.035);
+  --maxw:1220px;
+  --rail:clamp(16px,4.5vw,72px);
+  --ease:cubic-bezier(.22,.8,.26,1);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(80px + env(safe-area-inset-top,0px));-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--noir);color:var(--ecru);
+  font-family:"Archivo","Helvetica Neue",Arial,sans-serif;font-weight:300;
+  font-size:clamp(15px,.55vw + 14px,17px);line-height:1.68;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:inherit}
+h1,h2,h3,h4{font-family:"Bodoni Moda","Times New Roman",serif;font-weight:400;letter-spacing:-.015em;margin:0}
+h1{font-size:clamp(2.9rem,8.2vw,6.4rem);line-height:.98}
+h2{font-size:clamp(2.1rem,4.4vw,3.6rem);line-height:1.06}
+h3{font-size:clamp(1.12rem,1.5vw,1.38rem);line-height:1.28}
+p{margin:0 0 1em;max-width:66ch}
+::selection{background:var(--champagne);color:var(--noir)}
+:focus-visible{outline:2px solid var(--champagne);outline-offset:4px}
+
+/* ============ ambient layers ============ */
+.warp{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+  background-image:repeating-linear-gradient(to right,var(--thread-soft) 0 1px,transparent 1px 25%);
+  background-position:var(--rail) 0;
+  -webkit-mask-image:linear-gradient(to bottom,transparent,#000 12%,#000 88%,transparent);
+  mask-image:linear-gradient(to bottom,transparent,#000 12%,#000 88%,transparent)}
+.grain{position:fixed;inset:-50%;z-index:1;pointer-events:none;opacity:.05;
+  background-image:radial-gradient(#fff 1px,transparent 1px);background-size:3px 3px;
+  animation:grain 6s steps(6) infinite}
+@keyframes grain{
+  0%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-4%)}
+  60%{transform:translate(-3%,-3%)}80%{transform:translate(4%,2%)}100%{transform:translate(0,0)}}
+.glow{position:fixed;left:0;top:0;width:620px;height:620px;z-index:0;pointer-events:none;
+  margin:-310px 0 0 -310px;border-radius:50%;
+  background:radial-gradient(circle,rgba(203,176,124,.16),rgba(203,176,124,.05) 42%,transparent 68%);
+  filter:blur(14px);transition:opacity .6s;opacity:0}
+.shell{position:relative;z-index:2}
+
+/* progress + curtain */
+.progress{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:2px;width:0;z-index:60;
+  background:linear-gradient(90deg,rgba(203,176,124,.2),var(--champagne),var(--champagne-lt));
+  box-shadow:0 0 14px rgba(203,176,124,.5)}
+.curtain{position:fixed;inset:0;z-index:70;pointer-events:none;background:var(--noir-2);
+  transform:scaleY(0);transform-origin:bottom;transition:transform .5s var(--ease)}
+.curtain.in{transform:scaleY(1);transform-origin:bottom}
+.curtain.out{transform:scaleY(0);transform-origin:top}
+
+/* preloader */
+#pre{position:fixed;inset:0;z-index:90;background:var(--noir);display:grid;place-items:center;
+  transition:opacity .6s var(--ease),visibility .6s}
+#pre.done{opacity:0;visibility:hidden}
+#pre .pl{width:min(320px,70vw)}
+#pre .pw{stroke:rgba(237,231,220,.14);stroke-width:1}
+#pre .pf{stroke:var(--champagne);stroke-width:1.6;fill:none;stroke-dasharray:300;stroke-dashoffset:300;
+  animation:draw .9s var(--ease) forwards}
+#pre .pf:nth-of-type(2){animation-delay:.1s}#pre .pf:nth-of-type(3){animation-delay:.2s}
+#pre .pf:nth-of-type(4){animation-delay:.3s}#pre .pf:nth-of-type(5){animation-delay:.4s}
+#pre .plabel{margin-top:22px;text-align:center;font-size:.72rem;letter-spacing:.42em;color:var(--ash);
+  opacity:0;animation:fadeUp .7s .5s var(--ease) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* cursor */
+.cursor{position:fixed;width:9px;height:9px;border-radius:50%;background:var(--champagne-lt);
+  z-index:80;pointer-events:none;mix-blend-mode:difference;transform:translate(-50%,-50%);
+  transition:width .25s,height .25s,opacity .3s;opacity:0}
+.cursor.big{width:44px;height:44px;opacity:.6}
+
+/* ============ header ============ */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;
+  background:rgba(8,7,6,.72);backdrop-filter:blur(16px) saturate(140%);
+  border-bottom:1px solid var(--thread-soft);transition:border-color .4s,background .4s}
+header.stuck{border-bottom-color:var(--thread);background:rgba(8,7,6,.92)}
+.bar{max-width:var(--maxw);margin:0 auto;padding:15px var(--rail);
+  display:flex;align-items:center;gap:20px;justify-content:space-between}
+.mark{display:flex;align-items:center;gap:13px;text-decoration:none}
+.mark svg{width:36px;height:36px;flex:none;overflow:visible}
+.mark svg .dia{transform-box:fill-box;transform-origin:center;transition:transform .6s var(--ease)}
+.mark:hover svg .dia{transform:rotate(45deg)}
+.mark b{font-family:"Bodoni Moda",serif;font-weight:400;font-size:1.05rem;letter-spacing:.11em;display:block}
+.mark i{display:block;font-style:normal;font-size:.6rem;letter-spacing:.34em;color:var(--ash)}
+nav.main{display:flex;gap:30px;align-items:center}
+nav.main a{position:relative;text-decoration:none;font-size:.85rem;color:var(--ash);padding:6px 0;
+  transition:color .3s}
+nav.main a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--champagne);
+  transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease)}
+nav.main a:hover{color:var(--ecru)}
+nav.main a:hover::after,nav.main a[aria-current="page"]::after{transform:scaleX(1);transform-origin:left}
+nav.main a[aria-current="page"]{color:var(--champagne-lt)}
+
+/* ============ pages ============ */
+.page{display:none}
+.page.on{display:block}
+section{padding:clamp(64px,8vw,130px) var(--rail);max-width:var(--maxw);margin:0 auto;
+  border-top:1px solid var(--thread-soft);position:relative}
+section:first-child{border-top:none}
+
+/* reveal system */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.seen{opacity:1;transform:none}
+.rv-l{clip-path:inset(0 100% 0 0);transition:clip-path 1.1s var(--ease)}
+.rv-l.seen{clip-path:inset(0 0 0 0)}
+.word{display:inline-block;overflow:hidden;vertical-align:bottom}
+.word>span{display:inline-block;transform:translateY(105%);transition:transform 1s var(--ease)}
+.seen .word>span{transform:none}
+
+.lede{font-size:clamp(1.05rem,1.4vw,1.28rem);color:#D4CDC1;max-width:58ch;font-weight:200}
+.muted{color:var(--ash)}.small{font-size:.86rem}
+
+/* ============ hero ============ */
+.hero{padding-top:clamp(40px,7vw,86px);padding-bottom:clamp(40px,6vw,80px);border-top:none;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(20px,4vw,60px);align-items:center}
+.hero h1 em{font-style:italic;
+  background:linear-gradient(100deg,var(--champagne) 10%,var(--champagne-lt) 45%,var(--champagne) 80%);
+  background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:shimmer 6s linear infinite}
+@keyframes shimmer{to{background-position:220% 0}}
+.hero .sub{margin-top:26px;max-width:44ch;color:#D4CDC1;font-size:1.06rem;font-weight:200}
+.loom{width:100%;height:auto;display:block;will-change:transform}
+.loom .warp-l{stroke:rgba(237,231,220,.13);stroke-width:1}
+.loom .weft-l{stroke:var(--champagne);stroke-width:1.4;fill:none;stroke-dasharray:440;stroke-dashoffset:440;
+  animation:draw 1.5s var(--ease) forwards, breathe 5s ease-in-out infinite}
+.loom .weft-l:nth-of-type(2){animation-delay:.1s,.1s}
+.loom .weft-l:nth-of-type(3){animation-delay:.2s,.2s}
+.loom .weft-l:nth-of-type(4){animation-delay:.3s,.3s}
+.loom .weft-l:nth-of-type(5){animation-delay:.4s,.4s}
+.loom .weft-l:nth-of-type(6){animation-delay:.5s,.5s}
+.loom .weft-l:nth-of-type(7){animation-delay:.6s,.6s}
+.loom .weft-l:nth-of-type(8){animation-delay:.7s,.7s}
+@keyframes breathe{0%,100%{opacity:.45}50%{opacity:1}}
+.shuttle{fill:var(--champagne-lt);opacity:.9;
+  animation:shuttle 4.2s var(--ease) infinite}
+@keyframes shuttle{
+  0%{transform:translate(0,0)}
+  45%{transform:translate(390px,0)}
+  50%{transform:translate(390px,32px)}
+  95%{transform:translate(0,32px)}
+  100%{transform:translate(0,64px)}}
+
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.btn{position:relative;overflow:hidden;display:inline-block;text-decoration:none;font-size:.88rem;
+  letter-spacing:.04em;padding:15px 30px;border:1px solid var(--champagne);border-radius:99px;
+  color:var(--noir);background:var(--champagne);cursor:pointer;font-family:inherit;
+  transition:transform .35s var(--ease),box-shadow .35s,color .35s}
+.btn::before{content:"";position:absolute;inset:0;background:var(--champagne-lt);
+  transform:translateY(101%);transition:transform .45s var(--ease);z-index:-1}
+.btn:hover{box-shadow:0 12px 40px -12px rgba(203,176,124,.6)}
+.btn:hover::before{transform:translateY(0)}
+.btn span{position:relative;z-index:1}
+.btn.ghost{background:transparent;color:var(--champagne-lt)}
+.btn.ghost::before{background:rgba(203,176,124,.14)}
+.btn.ghost:hover{color:var(--champagne-lt)}
+
+/* stats */
+.selvedge{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--thread);
+  border-bottom:1px solid var(--thread);margin-top:clamp(44px,6vw,78px)}
+.selvedge div{padding:26px 20px;border-left:1px solid var(--thread-soft);position:relative;overflow:hidden}
+.selvedge div:first-child{border-left:none;padding-left:0}
+.selvedge div::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;
+  background:var(--champagne);transform:scaleX(0);transform-origin:left;transition:transform .8s var(--ease)}
+.selvedge div:hover::after{transform:scaleX(1)}
+.selvedge strong{display:block;font-family:"Bodoni Moda",serif;font-weight:400;
+  font-size:clamp(1.7rem,2.8vw,2.5rem);color:var(--champagne-lt);line-height:1}
+.selvedge span{font-size:.79rem;color:var(--ash);display:block;margin-top:8px}
+
+/* marquee */
+.ticker{border-top:1px solid var(--thread-soft);border-bottom:1px solid var(--thread-soft);
+  overflow:hidden;padding:18px 0;background:linear-gradient(90deg,transparent,rgba(203,176,124,.04),transparent)}
+.ticker-in{display:flex;gap:0;width:max-content;animation:slide 34s linear infinite}
+.ticker:hover .ticker-in{animation-play-state:paused}
+.ticker-in span{font-family:"Bodoni Moda",serif;font-size:clamp(1.1rem,2.2vw,1.9rem);
+  color:rgba(237,231,220,.42);padding:0 26px;white-space:nowrap}
+.ticker-in span i{color:var(--champagne);font-style:normal;opacity:.7}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* layout helpers */
+.two{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,4vw,70px);align-items:start}
+.head-block{margin-bottom:clamp(30px,4vw,54px)}
+.head-block p{margin-top:16px}
+.rows{border-top:1px solid var(--thread-soft)}
+.row{display:grid;grid-template-columns:210px 1fr;gap:clamp(16px,3vw,44px);padding:26px 0;
+  border-bottom:1px solid var(--thread-soft);position:relative;transition:padding-left .45s var(--ease)}
+.row::before{content:"";position:absolute;left:-14px;top:50%;width:6px;height:6px;border-radius:50%;
+  background:var(--champagne);transform:translateY(-50%) scale(0);transition:transform .45s var(--ease)}
+.row:hover{padding-left:14px}
+.row:hover::before{transform:translateY(-50%) scale(1)}
+.row h3{font-size:1.06rem;color:var(--champagne-lt)}
+.row p{margin:0;color:#C9C2B6}
+
+/* swatches */
+.swatches{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.swatches>.swatch:last-child:nth-child(3n+1){grid-column:2}
+.swatch{background:linear-gradient(180deg,var(--glass),rgba(255,255,255,.01));
+  border:1px solid var(--thread-soft);border-radius:14px;overflow:hidden;padding-bottom:24px;
+  transform-style:preserve-3d;transition:border-color .4s,box-shadow .5s,transform .12s linear}
+.swatch:hover{border-color:var(--thread);box-shadow:0 30px 70px -40px rgba(203,176,124,.55)}
+.swatch .cloth{aspect-ratio:4/3;border-bottom:1px solid var(--thread-soft);position:relative;overflow:hidden;
+  transition:background-position 1.4s var(--ease)}
+.swatch:hover .cloth{background-position:22px 22px}
+.swatch .cloth::after{content:"";position:absolute;top:0;bottom:0;width:60%;left:-70%;z-index:2;pointer-events:none;
+  background:linear-gradient(100deg,transparent,rgba(240,226,198,.20),transparent);
+  transition:left .9s var(--ease)}
+.swatch:hover .cloth::after{left:120%}
+.swatch .body{padding:20px 22px 0;transform:translateZ(30px)}
+.cloth.photo{background:#131110;cursor:zoom-in}
+.cloth.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.09);
+  transition:opacity 1.1s var(--ease),transform 7s linear}
+.cloth.photo img.on{opacity:1;transform:scale(1)}
+.swatch:hover .cloth.photo img.on{transform:scale(1.04);transition:opacity 1.1s var(--ease),transform 1.2s var(--ease)}
+.cloth.photo::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(to top,rgba(8,7,6,.62),transparent 42%)}
+.cloth.photo .dots{position:absolute;left:12px;bottom:8px;z-index:3;display:flex;gap:4px}
+.cloth.photo .dots button{width:22px;height:18px;border:0;padding:0;background:none;cursor:pointer;position:relative;
+  transition:width .45s var(--ease)}
+.cloth.photo .dots button::after{content:"";position:absolute;left:0;right:0;top:7px;height:3px;border-radius:2px;
+  background:rgba(240,226,198,.35);transition:background .45s}
+.cloth.photo .dots button.on{width:38px}
+.cloth.photo .dots button.on::after{background:var(--champagne-lt)}
+.cloth.photo .count{position:absolute;right:14px;bottom:10px;z-index:3;font-size:.72rem;letter-spacing:.08em;
+  color:var(--champagne-lt);font-variant-numeric:tabular-nums}
+.cloth.photo .zoom{position:absolute;right:12px;top:12px;z-index:3;font-size:.7rem;letter-spacing:.06em;
+  color:var(--champagne-lt);background:rgba(8,7,6,.55);border:1px solid var(--thread);border-radius:99px;
+  padding:4px 11px;opacity:0;transform:translateY(-4px);transition:opacity .35s,transform .35s var(--ease)}
+.swatch:hover .cloth.photo .zoom{opacity:1;transform:none}
+
+.lb{position:fixed;inset:0;z-index:85;display:grid;place-items:center;
+  padding:calc(64px + env(safe-area-inset-top,0px)) 16px calc(70px + env(safe-area-inset-bottom,0px));
+  background:rgba(8,7,6,.94);backdrop-filter:blur(10px);opacity:0;transition:opacity .4s var(--ease)}
+.lb[hidden]{display:none}
+.lb.open{opacity:1}
+.lb img{max-width:min(92vw,900px);max-height:100%;object-fit:contain;border-radius:10px;
+  box-shadow:0 40px 90px -30px rgba(0,0,0,.9);transform:scale(.94);transition:transform .5s var(--ease),opacity .3s}
+.lb.open img{transform:none}
+.lb img.swap{opacity:0}
+.lb-x{position:absolute;top:calc(16px + env(safe-area-inset-top,0px));right:16px;background:none;
+  border:1px solid var(--thread);color:var(--ecru);border-radius:99px;padding:8px 16px;font:inherit;font-size:.8rem;cursor:pointer}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;
+  border:1px solid var(--thread);background:rgba(8,7,6,.6);color:var(--champagne-lt);font-size:1.4rem;line-height:1;cursor:pointer;
+  transition:background .3s}
+.lb-nav:hover,.lb-x:hover{background:rgba(203,176,124,.16)}
+.lb-nav.prev{left:14px}.lb-nav.next{right:14px}
+.lb-cap{position:absolute;left:0;right:0;bottom:calc(22px + env(safe-area-inset-bottom,0px));text-align:center;
+  margin:0 auto;font-size:.85rem;color:var(--ash)}
+.swatch h3{margin-bottom:8px}
+.swatch dl{margin:14px 0 0;display:grid;grid-template-columns:auto 1fr;gap:5px 16px;font-size:.83rem}
+.swatch dt{color:var(--ash)}
+.swatch dd{margin:0;color:#D4CDC1}
+.swatch p{font-size:.88rem;color:var(--ash);margin:0}
+
+/* steps */
+ol.steps{counter-reset:s;padding:0;margin:0;position:relative}
+ol.steps::before{content:"";position:absolute;left:23px;top:8px;bottom:8px;width:1px;background:var(--thread-soft)}
+ol.steps .fill{position:absolute;left:23px;top:8px;width:1px;height:0;background:var(--champagne);
+  box-shadow:0 0 12px rgba(203,176,124,.7)}
+.steps li{list-style:none;counter-increment:s;display:grid;grid-template-columns:64px 1fr;
+  gap:clamp(14px,2vw,30px);padding:24px 0;border-bottom:1px solid var(--thread-soft);position:relative}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:"Bodoni Moda",serif;font-size:1.25rem;
+  color:var(--champagne);background:var(--noir);position:relative;z-index:1;
+  width:47px;text-align:center;transition:transform .45s var(--ease),color .3s}
+.steps li:hover::before{transform:scale(1.25);color:var(--champagne-lt)}
+.steps h3{font-size:1.02rem;margin-bottom:5px}
+.steps p{margin:0;font-size:.92rem;color:var(--ash)}
+
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+caption{text-align:left;color:var(--ash);font-size:.86rem;padding-bottom:14px}
+th,td{text-align:left;padding:15px 16px 15px 0;border-bottom:1px solid var(--thread-soft);vertical-align:top}
+th{font-weight:500;color:var(--champagne-lt);font-size:.84rem}
+td{color:#C9C2B6}
+tbody tr{transition:background .35s}
+tbody tr:hover{background:rgba(203,176,124,.05)}
+
+/* markets */
+.markets{display:grid;grid-template-columns:repeat(2,1fr);gap:0 clamp(24px,5vw,80px)}
+.markets div{padding:22px 0;border-bottom:1px solid var(--thread-soft);position:relative;overflow:hidden}
+.markets div::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--champagne);
+  transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease)}
+.markets div:hover::after{transform:scaleX(1)}
+.markets h3{font-size:1rem;color:var(--champagne-lt);margin-bottom:6px}
+.markets p{margin:0;font-size:.88rem;color:var(--ash)}
+
+/* form */
+.enquiry{display:grid;grid-template-columns:repeat(2,1fr);gap:20px 24px}
+.field{display:flex;flex-direction:column;gap:8px;position:relative}
+.field.wide{grid-column:1/-1}
+label{font-size:.8rem;color:var(--ash);transition:color .3s}
+.field:focus-within label{color:var(--champagne-lt)}
+input,select,textarea{font:inherit;font-size:.95rem;font-weight:300;color:var(--ecru);background:rgba(255,255,255,.03);
+  border:1px solid var(--thread-soft);border-radius:10px;padding:14px 15px;transition:border-color .35s,background .35s,box-shadow .35s}
+input:focus,select:focus,textarea:focus{border-color:var(--champagne);outline:none;background:rgba(203,176,124,.06);
+  box-shadow:0 0 0 4px rgba(203,176,124,.09)}
+textarea{min-height:126px;resize:vertical}
+select:disabled{color:var(--ash);opacity:.55;cursor:not-allowed}
+select option{background:#16130F;color:#EDE7DC}
+
+/* ---- custom dropdown ---- */
+.csel{position:relative}
+.csel-native{position:absolute!important;left:0;top:0;width:1px!important;height:1px;padding:0!important;margin:0;border:0!important;
+  overflow:hidden;clip-path:inset(50%);white-space:nowrap;pointer-events:none;animation:none!important}
+.csel-btn{width:100%;display:flex;align-items:center;gap:10px;text-align:left;cursor:pointer;
+  font:inherit;font-size:.95rem;font-weight:300;color:var(--ecru);background:rgba(255,255,255,.03);
+  border:1px solid var(--thread-soft);border-radius:10px;padding:14px 15px;
+  transition:border-color .35s,background .35s,box-shadow .35s}
+.csel-btn:hover{border-color:var(--thread);background:rgba(203,176,124,.04)}
+.csel-btn:focus-visible,.csel.is-open .csel-btn{outline:none;border-color:var(--champagne);background:rgba(203,176,124,.06);
+  box-shadow:0 0 0 4px rgba(203,176,124,.09)}
+.csel-btn:disabled{opacity:.5;cursor:not-allowed}
+.csel-val{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.csel-val.ph{color:var(--ash)}
+.csel-btn .csel-tag{flex:none}
+.csel-chev{width:12px;height:8px;flex:none;fill:none;stroke:var(--champagne);stroke-width:1.6;transition:transform .35s var(--ease)}
+.csel.is-open .csel-chev{transform:rotate(180deg)}
+.csel-native.pop~.csel-btn{animation:glowIn 1.2s var(--ease)}
+@keyframes glowIn{0%{box-shadow:0 0 0 0 rgba(203,176,124,.55);border-color:var(--champagne)}
+  100%{box-shadow:0 0 0 12px rgba(203,176,124,0)}}
+
+.csel-pop{position:absolute;left:0;right:0;top:calc(100% + 8px);z-index:48;min-width:260px;
+  background:linear-gradient(180deg,#1B1713,#110E0B);border:1px solid var(--thread);border-radius:14px;
+  box-shadow:0 34px 80px -24px rgba(0,0,0,.9),0 0 0 1px rgba(0,0,0,.35),inset 0 1px 0 rgba(240,226,198,.06);
+  overflow:hidden;display:flex;flex-direction:column;
+  opacity:0;transform:translateY(-8px) scale(.97);transform-origin:top center;
+  transition:opacity .22s var(--ease),transform .32s var(--ease)}
+.csel.up .csel-pop{top:auto;bottom:calc(100% + 8px);transform-origin:bottom center;transform:translateY(8px) scale(.97)}
+.csel-pop.open,.csel.up .csel-pop.open{opacity:1;transform:none}
+.csel-pop[hidden]{display:none}
+.csel-head{display:none}
+.csel-search{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--thread-soft);
+  background:rgba(203,176,124,.03)}
+.csel-search svg{width:16px;height:16px;flex:none;fill:none;stroke:var(--champagne);stroke-width:1.7;stroke-linecap:round}
+.csel-search input{flex:1;min-width:0;background:none!important;border:0!important;box-shadow:none!important;
+  padding:4px 0;border-radius:0;font-size:.93rem;color:var(--ecru)}
+.csel-search input::placeholder{color:var(--ash)}
+.csel-list{list-style:none;margin:0;padding:6px;max-height:310px;overflow-y:auto;overscroll-behavior:contain;
+  scrollbar-width:thin;scrollbar-color:rgba(203,176,124,.35) transparent}
+.csel-list::-webkit-scrollbar{width:6px}
+.csel-list::-webkit-scrollbar-thumb{background:rgba(203,176,124,.3);border-radius:3px}
+.csel-list:focus{outline:none}
+.csel-grp{padding:10px 12px 6px;font-size:.72rem;letter-spacing:.06em;color:var(--champagne);opacity:.8}
+.csel-div{height:1px;background:var(--thread-soft);margin:6px 10px}
+.csel-opt{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:9px;cursor:pointer;
+  color:#D9D2C6;font-size:.92rem;position:relative;
+  animation:optIn .4s var(--ease) both;animation-delay:calc(var(--i,0) * 16ms)}
+@keyframes optIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.csel-opt::before{content:"";position:absolute;left:0;top:10px;bottom:10px;width:2px;border-radius:2px;
+  background:var(--champagne);transform:scaleY(0);transition:transform .3s var(--ease)}
+.csel-opt.act{background:rgba(203,176,124,.10);color:var(--ecru)}
+.csel-opt.act::before{transform:scaleY(1)}
+.csel-opt[aria-selected="true"]{color:var(--champagne-lt)}
+.csel-t{flex:1;min-width:0}
+.csel-t mark{background:none;color:var(--champagne-lt);font-weight:500;text-decoration:underline;
+  text-decoration-color:var(--champagne);text-underline-offset:3px}
+.csel-meta{font-size:.74rem;color:var(--ash);font-variant-numeric:tabular-nums;flex:none}
+.csel-opt .ck{width:14px;height:14px;flex:none;fill:none;stroke:var(--champagne);stroke-width:2.2;
+  stroke-linecap:round;stroke-linejoin:round;opacity:0;transform:scale(.6);transition:opacity .25s,transform .3s var(--ease)}
+.csel-opt[aria-selected="true"] .ck{opacity:1;transform:none}
+.csel-opt.x{color:var(--ash)}
+.csel-empty{padding:22px 16px;text-align:center;color:var(--ash);font-size:.86rem;margin:0}
+.csel-empty[hidden]{display:none}
+.csel-tag{font-size:.66rem;letter-spacing:.05em;padding:2px 9px;border-radius:99px;flex:none;
+  border:1px solid rgba(203,176,124,.35);color:var(--champagne-lt);background:rgba(203,176,124,.07)}
+.csel-tag.t-air{border-color:rgba(170,200,230,.35);color:#CFDDEA;background:rgba(170,200,230,.07)}
+.csel-tag.t-rail{border-color:rgba(200,180,220,.35);color:#DDD0EA;background:rgba(200,180,220,.07)}
+.csel-tag.t-inland{border-color:rgba(180,210,180,.35);color:#D3E4D0;background:rgba(180,210,180,.07)}
+.csel-tag.t-transit,.csel-tag.t-land,.csel-tag.t-river{border-color:var(--thread-soft);color:var(--ash);background:none}
+.csel-scrim{position:fixed;inset:0;z-index:94;background:rgba(0,0,0,.6);backdrop-filter:blur(3px);
+  opacity:0;transition:opacity .3s}
+.csel-scrim.on{opacity:1}
+.csel-scrim[hidden]{display:none}
+@media (max-width:760px){
+  .csel-pop,.csel.up .csel-pop{position:fixed;left:0;right:0;top:auto;bottom:0;z-index:95;min-width:0;
+    max-height:82vh;border-radius:22px 22px 0 0;border-bottom:0;padding-bottom:env(safe-area-inset-bottom,0px);
+    transform:translateY(100%);transition:transform .42s var(--ease),opacity .2s}
+  .csel-pop.open,.csel.up .csel-pop.open{transform:none}
+  .csel-head{display:block;padding:12px 18px 10px;text-align:center;font-family:"Bodoni Moda",serif;
+    font-size:1.2rem;color:var(--champagne-lt)}
+  .csel-head::before{content:"";display:block;width:42px;height:4px;border-radius:2px;background:var(--thread);margin:0 auto 12px}
+  .csel-list{max-height:none;flex:1}
+  .csel-opt{padding:14px 14px;font-size:1rem}
+}
+select.pop{animation:pop .5s var(--ease)}
+@keyframes pop{from{opacity:0;transform:translateY(-7px)}to{opacity:1;transform:none}}
+.form-note{font-size:.82rem;color:var(--ash);grid-column:1/-1;margin:0;transition:color .3s}
+.form-note.err{color:#F0C9A6}
+.form-note a{color:var(--champagne-lt)}
+.hp{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+.btn.busy{pointer-events:none;opacity:.85}
+.btn.busy span::after{content:"";display:inline-block;width:12px;height:12px;margin-left:10px;vertical-align:-2px;
+  border:1.5px solid currentColor;border-right-color:transparent;border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.enquiry.done>:not(.sent){display:none}
+.sent{grid-column:1/-1;text-align:center;padding:clamp(28px,5vw,48px) 20px;border:1px solid var(--thread);
+  border-radius:16px;background:linear-gradient(180deg,rgba(203,176,124,.07),rgba(255,255,255,.01));
+  animation:fadeUp .6s var(--ease) both}
+.sent[hidden]{display:none}
+.sent svg{width:64px;height:64px;margin:0 auto 16px;display:block}
+.sent circle{fill:none;stroke:var(--champagne);stroke-width:1.5;stroke-dasharray:151;stroke-dashoffset:151;
+  animation:draw .8s var(--ease) .1s forwards}
+.sent path{fill:none;stroke:var(--champagne-lt);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:36;stroke-dashoffset:36;animation:draw .5s var(--ease) .75s forwards}
+.sent h3{font-size:1.5rem;color:var(--champagne-lt);margin-bottom:8px}
+.sent p{margin:0 auto 22px;color:#D4CDC1}
+.contact-card{background:linear-gradient(180deg,var(--glass),rgba(255,255,255,.01));
+  border:1px solid var(--thread-soft);border-radius:16px;padding:30px;position:relative;overflow:hidden}
+.contact-card::before{content:"";position:absolute;width:280px;height:280px;right:-120px;top:-120px;border-radius:50%;
+  background:radial-gradient(circle,rgba(203,176,124,.18),transparent 70%);animation:float 9s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(-24px,26px)}}
+.contact-card h3{color:var(--champagne-lt);margin-bottom:18px}
+.contact-card dl{margin:0;display:grid;gap:16px;position:relative}
+.contact-card dt{font-size:.77rem;color:var(--ash)}
+.contact-card dd{margin:4px 0 0;font-size:.95rem}
+.contact-card a{color:var(--champagne-lt);text-decoration:none;border-bottom:1px solid var(--thread)}
+
+/* footer */
+footer{border-top:1px solid var(--thread);padding:clamp(40px,5vw,64px) var(--rail) 46px;max-width:var(--maxw);margin:0 auto}
+.foot{display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:flex-start}
+.foot nav{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.foot nav a{text-decoration:none;font-size:.88rem;color:var(--ash);transition:color .3s,transform .3s}
+.foot nav a:hover{color:var(--champagne-lt);transform:translateX(5px)}
+
+/* responsive */
+@media (max-width:980px){
+  .hero-grid,.two{grid-template-columns:1fr}
+  .swatches{grid-template-columns:repeat(2,1fr)}
+  .swatches>.swatch:last-child:nth-child(3n+1){grid-column:auto}
+  .selvedge{grid-template-columns:repeat(2,1fr)}
+  .selvedge div:nth-child(3){border-left:none;padding-left:0}
+  .markets{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .bar{flex-wrap:wrap;justify-content:center;gap:4px;padding-bottom:0}
+  nav.main{width:100%;order:3;gap:clamp(12px,4.4vw,26px);justify-content:space-between;
+    overflow-x:auto;scrollbar-width:none;border-top:1px solid var(--thread-soft);padding:9px 0 10px}
+  nav.main::-webkit-scrollbar{display:none}
+  nav.main a{font-size:.8rem;white-space:nowrap;padding:5px 0}
+  .row{grid-template-columns:1fr;gap:6px}
+  .swatches{grid-template-columns:1fr}
+  .enquiry{grid-template-columns:1fr}
+  .warp{opacity:.3}.cursor,.glow{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .rv{opacity:1;transform:none}.rv-l{clip-path:none}.word>span{transform:none}
+  .loom .weft-l{stroke-dashoffset:0}
+}
+</style>
+</head>
+<body>
+<div id="pre">
+  <div>
+    <svg class="pl" viewBox="0 0 300 120" aria-hidden="true">
+      <line class="pw" x1="30" y1="10" x2="30" y2="110"/><line class="pw" x1="90" y1="10" x2="90" y2="110"/>
+      <line class="pw" x1="150" y1="10" x2="150" y2="110"/><line class="pw" x1="210" y1="10" x2="210" y2="110"/>
+      <line class="pw" x1="270" y1="10" x2="270" y2="110"/>
+      <path class="pf" d="M5 25 Q 40 15 75 25 T 145 25 T 215 25 T 295 25"/>
+      <path class="pf" d="M5 47 Q 40 57 75 47 T 145 47 T 215 47 T 295 47"/>
+      <path class="pf" d="M5 69 Q 40 59 75 69 T 145 69 T 215 69 T 295 69"/>
+      <path class="pf" d="M5 91 Q 40 101 75 91 T 145 91 T 215 91 T 295 91"/>
+    </svg>
+    <div class="plabel">WORLD WEFT FABRIC</div>
+  </div>
+</div>
+
+<div class="warp" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="glow" id="glow" aria-hidden="true"></div>
+<div class="progress" id="prog" aria-hidden="true"></div>
+<div class="curtain" id="curtain" aria-hidden="true"></div>
+<div class="cursor" id="cur" aria-hidden="true"></div>
+
+<div class="shell">
+<header id="hdr">
+  <div class="bar">
+    <a class="mark" href="#/" aria-label="World Weft Fabric, home">
+      <svg viewBox="0 0 60 60" aria-hidden="true">
+        <g class="dia">
+          <rect x="30" y="4" width="36.77" height="36.77" transform="rotate(45 30 4)" fill="none" stroke="#CBB07C" stroke-width="1.4"/>
+          <rect x="30" y="13" width="24.04" height="24.04" transform="rotate(45 30 13)" fill="none" stroke="#CBB07C" stroke-width=".6" opacity=".5"/>
+        </g>
+        <text x="30" y="38" text-anchor="middle" font-family="Bodoni Moda, serif" font-style="italic" font-size="24" fill="#F0E2C6">W</text>
+      </svg>
+      <span><b>WORLD WEFT</b><i>FABRIC</i></span>
+    </a>
+    <nav class="main" id="mainnav">
+      <a href="#/">Home</a>
+      <a href="#/collections">Collections</a>
+      <a href="#/export">Export</a>
+      <a href="#/quality">Quality</a>
+      <a href="#/contact">Enquiry</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HOME ============ -->
+<div class="page" id="p-home">
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <h1 class="rv split">Warp holds. <em>Weft</em> makes the cloth.</h1>
+        <p class="sub rv">We weave, dye, finish and ship fabric from Surat, India — viscose, crepe, satin, cotton, slub and knits — to garment makers and importers across the world.</p>
+        <div class="cta-row rv">
+          <a class="btn mag" href="#/contact"><span>Send an enquiry</span></a>
+          <a class="btn ghost mag" href="#/collections"><span>See the collections</span></a>
+        </div>
+      </div>
+      <div class="rv">
+        <svg class="loom" id="loom" viewBox="0 0 420 300" role="img" aria-label="Weft threads crossing a warp">
+          <line class="warp-l" x1="30" y1="10" x2="30" y2="290"/><line class="warp-l" x1="80" y1="10" x2="80" y2="290"/>
+          <line class="warp-l" x1="130" y1="10" x2="130" y2="290"/><line class="warp-l" x1="180" y1="10" x2="180" y2="290"/>
+          <line class="warp-l" x1="230" y1="10" x2="230" y2="290"/><line class="warp-l" x1="280" y1="10" x2="280" y2="290"/>
+          <line class="warp-l" x1="330" y1="10" x2="330" y2="290"/><line class="warp-l" x1="380" y1="10" x2="380" y2="290"/>
+          <path class="weft-l" d="M10 46 Q 55 34 105 46 T 205 46 T 305 46 T 410 46"/>
+          <path class="weft-l" d="M10 78 Q 55 90 105 78 T 205 78 T 305 78 T 410 78"/>
+          <path class="weft-l" d="M10 110 Q 55 98 105 110 T 205 110 T 305 110 T 410 110"/>
+          <path class="weft-l" d="M10 142 Q 55 154 105 142 T 205 142 T 305 142 T 410 142"/>
+          <path class="weft-l" d="M10 174 Q 55 162 105 174 T 205 174 T 305 174 T 410 174"/>
+          <path class="weft-l" d="M10 206 Q 55 218 105 206 T 205 206 T 305 206 T 410 206"/>
+          <path class="weft-l" d="M10 238 Q 55 226 105 238 T 205 238 T 305 238 T 410 238"/>
+          <path class="weft-l" d="M10 270 Q 55 282 105 270 T 205 270 T 305 270 T 410 270"/>
+          <rect class="shuttle" x="8" y="100" width="18" height="5" rx="2.5"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="selvedge rv">
+      <div><strong data-count="40" data-suffix="+">0</strong><span>fabric qualities in the running range</span></div>
+      <div><strong data-count="1000" data-suffix=" m">0</strong><span>minimum order per colour</span></div>
+      <div><strong data-count="25" data-prefix="15–" data-suffix=" days">0</strong><span>production to dispatch</span></div>
+      <div><strong data-count="4" data-suffix=" ports">0</strong><span>Hazira, Mundra, Nhava Sheva, air</span></div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-in">
+      <span>Viscose georgette <i>/</i> Poly crepe <i>/</i> Satin <i>/</i> Cotton poplin <i>/</i> Slub <i>/</i> Knits <i>/</i>&nbsp;</span>
+      <span>Viscose georgette <i>/</i> Poly crepe <i>/</i> Satin <i>/</i> Cotton poplin <i>/</i> Slub <i>/</i> Knits <i>/</i>&nbsp;</span>
+    </div>
+  </div>
+
+  <section>
+    <div class="two">
+      <div class="head-block rv split"><h2>What we do</h2></div>
+      <div class="rows">
+        <div class="row rv"><h3>Weaving and knitting</h3><p>Air-jet, water-jet and rapier looms for filament wovens, circular knitting for jersey and lycra qualities. Greige is woven to our own specification, not bought loose from the market.</p></div>
+        <div class="row rv"><h3>Dyeing and finishing</h3><p>Piece dyeing, printing and finishing through partner process houses we audit and book capacity with, so lab dips and bulk stay on the same recipe.</p></div>
+        <div class="row rv"><h3>Export</h3><p>Roll-wise packing, full document set and the Incoterm you work on — EXW through to CIF, with DDP quoted on request. And of course, your agent can come for inspection before dispatch.</p></div>
+        <div class="row rv"><h3>Private label development</h3><p>Send a swatch or a tech pack. We match construction, weight and shade, and hold the quality for repeat orders.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="head-block rv split">
+      <h2>Where our cloth goes</h2>
+      <p class="lede">We ship to buyers in every major garment market. Freight, documents and lead times are quoted for your port, not a generic one.</p>
+    </div>
+    <div class="markets">
+      <div class="rv"><h3>Middle East</h3><p>UAE, Saudi Arabia, Oman, Qatar, Kuwait — sea via Jebel Ali, air via Dubai.</p></div>
+      <div class="rv"><h3>Europe</h3><p>Spain, Italy, Poland, Germany, Netherlands, UK — REACH-compliant dyeing on request.</p></div>
+      <div class="rv"><h3>North America</h3><p>United States, Canada, Mexico — 4-point inspected, roll-wise packing list.</p></div>
+      <div class="rv"><h3>Africa</h3><p>Nigeria, Kenya, Egypt, Ghana, Tanzania — printed and dyed staples in volume.</p></div>
+      <div class="rv"><h3>South and Southeast Asia</h3><p>Bangladesh, Sri Lanka, Vietnam, Indonesia — greige and finished supply for CMT units.</p></div>
+      <div class="rv"><h3>Latin America and Oceania</h3><p>Brazil, Chile, Colombia, Australia — consolidated LCL for first orders.</p></div>
+    </div>
+    <div class="cta-row rv"><a class="btn mag" href="#/contact"><span>Ask for a quotation</span></a></div>
+  </section>
+</div>
+
+<!-- ============ COLLECTIONS ============ -->
+<div class="page" id="p-collections">
+  <section>
+    <div class="head-block rv split">
+      <h2>Collections</h2>
+      <p class="lede">Our running range, grouped by construction. Every quality is available greige, dyed or printed, and can be adjusted in weight and width for your order.</p>
+    </div>
+
+    <div class="swatches">
+      <article class="swatch tilt rv"><div class="cloth photo" data-gallery tabindex="0" role="button" aria-label="View viscose georgette photos">
+          <img class="on" src="images/viscose-georgette-1-ivory.webp" alt="Viscose georgette in ivory, pleated" width="500" height="500" decoding="async">
+          <img src="images/viscose-georgette-2-pink.webp" alt="Viscose georgette in pink" width="900" height="900" loading="lazy" decoding="async">
+          <img src="images/viscose-georgette-3-teal.webp" alt="Viscose georgette in teal" width="898" height="900" loading="lazy" decoding="async">
+          <img src="images/viscose-georgette-4-camel.webp" alt="Viscose georgette in camel" width="900" height="900" loading="lazy" decoding="async">
+          <span class="zoom" aria-hidden="true">Enlarge</span>
+          <div class="dots"></div><span class="count" aria-hidden="true">1 / 4</span>
+        </div>
+        <div class="body"><h3>Viscose georgette</h3><p>Dry handle, fluid drape. The workhorse for dresses and scarves.</p>
+        <dl><dt>Composition</dt><dd>100% viscose</dd><dt>Weight</dt><dd>60–120 GSM</dd>
+        <dt>Width</dt><dd>44" / 58"</dd><dt>Finish</dt><dd>Dyed, printed, foil</dd></dl></div></article>
+
+      <article class="swatch tilt rv"><div class="cloth photo" data-gallery tabindex="0" role="button" aria-label="View poly crepe and moss crepe photos">
+          <img class="on" src="images/poly-crepe-1-white.webp" alt="Poly crepe in white" width="430" height="430" decoding="async">
+          <img src="images/poly-crepe-2-lime.webp" alt="Poly crepe in lime green" width="675" height="900" loading="lazy" decoding="async">
+          <img src="images/poly-crepe-3-rust.webp" alt="Moss crepe in rust" width="706" height="900" loading="lazy" decoding="async">
+          <img src="images/poly-crepe-4-teal.webp" alt="Poly crepe in teal" width="500" height="500" loading="lazy" decoding="async">
+          <img src="images/poly-crepe-5-grey.webp" alt="Poly crepe in grey" width="447" height="447" loading="lazy" decoding="async">
+          <span class="zoom" aria-hidden="true">Enlarge</span>
+          <div class="dots"></div><span class="count" aria-hidden="true">1 / 5</span>
+        </div>
+        <div class="body"><h3>Poly crepe and moss crepe</h3><p>Crimped yarn, matte surface, holds pleats and print definition.</p>
+        <dl><dt>Composition</dt><dd>100% polyester</dd><dt>Weight</dt><dd>80–160 GSM</dd>
+        <dt>Width</dt><dd>58" / 60"</dd><dt>Finish</dt><dd>Dyed, digital print</dd></dl></div></article>
+
+      <article class="swatch tilt rv"><div class="cloth photo" data-gallery tabindex="0" role="button" aria-label="View satin and charmeuse photos">
+          <img class="on" src="images/satin-1-ivory.webp" alt="Satin in ivory" width="447" height="447" decoding="async">
+          <img src="images/satin-2-pearl.webp" alt="Satin in pearl white" width="387" height="516" loading="lazy" decoding="async">
+          <img src="images/satin-3-blush.webp" alt="Satin charmeuse in blush" width="500" height="500" loading="lazy" decoding="async">
+          <img src="images/satin-4-rose.webp" alt="Satin in rose" width="570" height="538" loading="lazy" decoding="async">
+          <span class="zoom" aria-hidden="true">Enlarge</span>
+          <div class="dots"></div><span class="count" aria-hidden="true">1 / 4</span>
+        </div>
+        <div class="body"><h3>Satin and charmeuse</h3><p>Long float weave with a lustrous face and matte back.</p>
+        <dl><dt>Composition</dt><dd>Poly, poly-spandex, viscose</dd><dt>Weight</dt><dd>60–110 GSM</dd>
+        <dt>Width</dt><dd>58"</dd><dt>Finish</dt><dd>Dyed, printed, heat-set</dd></dl></div></article>
+
+      <article class="swatch tilt rv"><div class="cloth photo" data-gallery tabindex="0" role="button" aria-label="View cotton poplin and cambric photos">
+          <img class="on" src="images/cotton-1-natural.webp" alt="Cotton poplin in natural and grey" width="900" height="675" decoding="async">
+          <img src="images/cotton-2-peach.webp" alt="Cotton cambric in peach" width="490" height="490" loading="lazy" decoding="async">
+          <img src="images/cotton-3-blue.webp" alt="Cotton cambric in powder blue" width="750" height="900" loading="lazy" decoding="async">
+          <img src="images/cotton-4-shades.webp" alt="Cotton in assorted shades" width="500" height="500" loading="lazy" decoding="async">
+          <span class="zoom" aria-hidden="true">Enlarge</span>
+          <div class="dots"></div><span class="count" aria-hidden="true">1 / 4</span>
+        </div>
+        <div class="body"><h3>Cotton poplin and cambric</h3><p>Tight plain weave, crisp hand, dependable for shirting.</p>
+        <dl><dt>Composition</dt><dd>100% cotton, cotton-poly</dd><dt>Weight</dt><dd>100–150 GSM</dd>
+        <dt>Width</dt><dd>44" / 58"</dd><dt>Finish</dt><dd>Mercerised, dyed, printed</dd></dl></div></article>
+
+
+      <article class="swatch tilt rv"><div class="cloth photo" data-gallery tabindex="0" role="button" aria-label="View linen-look and slub photos">
+          <img class="on" src="images/slub-1-light-grey.webp" alt="Slub in light grey" width="447" height="447" decoding="async">
+          <img src="images/slub-2-flax.webp" alt="Linen-look slub in natural flax" width="224" height="224" loading="lazy" decoding="async">
+          <img src="images/slub-3-natural.webp" alt="Linen-look in natural, close weave" width="250" height="250" loading="lazy" decoding="async">
+          <img src="images/slub-4-shades.webp" alt="Slub in assorted shades" width="570" height="570" loading="lazy" decoding="async">
+          <span class="zoom" aria-hidden="true">Enlarge</span>
+          <div class="dots"></div><span class="count" aria-hidden="true">1 / 4</span>
+        </div>
+        <div class="body"><h3>Linen-look and slub</h3><p>Slub yarn woven for texture without the price of flax.</p>
+        <dl><dt>Composition</dt><dd>Viscose-poly, cotton-linen</dd><dt>Weight</dt><dd>140–220 GSM</dd>
+        <dt>Width</dt><dd>58"</dd><dt>Finish</dt><dd>Enzyme wash, dyed</dd></dl></div></article>
+
+      <article class="swatch tilt rv"><div class="cloth photo" data-gallery tabindex="0" role="button" aria-label="View knit fabric photos">
+          <img class="on" src="images/knit-1-jersey-blue.webp" alt="Single jersey in blue" width="447" height="447" decoding="async">
+          <img src="images/knit-2-pique-blue.webp" alt="Piqué knit in cornflower blue" width="500" height="500" loading="lazy" decoding="async">
+          <img src="images/knit-3-jersey-royal.webp" alt="Jersey knit in royal blue, draped" width="640" height="480" loading="lazy" decoding="async">
+          <img src="images/knit-4-interlock-navy.webp" alt="Interlock in navy" width="640" height="480" loading="lazy" decoding="async">
+          <span class="zoom" aria-hidden="true">Enlarge</span>
+          <div class="dots"></div><span class="count" aria-hidden="true">1 / 4</span>
+        </div>
+        <div class="body"><h3>Knits — jersey, interlock, lycra</h3><p>Circular knitted qualities with four-way stretch for activewear and loungewear.</p>
+        <dl><dt>Composition</dt><dd>Cotton, poly, spandex blends</dd><dt>Weight</dt><dd>160–260 GSM</dd>
+        <dt>Width</dt><dd>58" / 60" tubular or open</dd><dt>Finish</dt><dd>Bio-wash, compacted, dyed</dd></dl></div></article>
+
+    </div>
+
+    <p class="small muted rv" style="margin-top:30px">Working on something outside this list? Send a swatch or a tech pack and we will match the construction, weight and shade.</p>
+    <div class="cta-row rv"><a class="btn mag" href="#/contact"><span>Request swatches</span></a></div>
+  </section>
+</div>
+
+<!-- ============ EXPORT ============ -->
+<div class="page" id="p-export">
+  <section>
+    <div class="head-block rv split">
+      <h2>Export capability</h2>
+      <p class="lede">What we can commit to before you place an order, and how the shipment reaches you.</p>
+    </div>
+    <div class="rv">
+    <table>
+      <caption>Order and production terms</caption>
+      <tbody>
+        <tr><th scope="row">Minimum order</th><td>1,000 metres per colour per quality; 3,000 metres per shipment for first orders</td></tr>
+        <tr><th scope="row">Sampling</th><td>Header cuts free; lab dips in 5–7 days; counter sample in 10–12 days</td></tr>
+        <tr><th scope="row">Monthly capacity</th><td>Woven 400,000 m · knits 120,000 m</td></tr>
+        <tr><th scope="row">Lead time</th><td>15–25 days after approved sample and advance, plus transit</td></tr>
+        <tr><th scope="row">Incoterms</th><td>EXW, FOB, CFR, CIF as standard; DDP quoted on request</td></tr>
+        <tr><th scope="row">Payment</th><td>30% advance by TT, balance against scanned BL; or irrevocable LC at sight through a scheduled bank</td></tr>
+        <tr><th scope="row">Currencies</th><td>USD, EUR, AED, INR</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="two">
+      <div class="head-block rv split"><h2>Logistics</h2>
+        <p class="muted small">Surat sits within a day's road run of three container ports, so we can switch gateway if space or rates move against a sailing.</p></div>
+      <div class="rows">
+        <div class="row rv"><h3>Sea</h3><p>Hazira and Mundra for Gujarat loading, Nhava Sheva for wider sailing options. FCL in 20' and 40'; LCL consolidated for trial orders.</p></div>
+        <div class="row rv"><h3>Air</h3><p>Ahmedabad and Mumbai for sampling and urgent top-ups, typically 4–7 days door to door.</p></div>
+        <div class="row rv"><h3>Packing</h3><p>Rolls wrapped in HDPE with a polybag over, taffeta label on each roll with quality, shade, metres and roll number. Bale or carton packing to your instruction.</p></div>
+        <div class="row rv"><h3>Documents</h3><p>Commercial invoice, roll-wise packing list, bill of lading or airway bill, certificate of origin, and inspection report. Preferential certificates issued where a trade agreement applies.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="head-block rv split"><h2>How an order runs</h2></div>
+    <ol class="steps" id="steps">
+      <div class="fill" id="stepfill"></div>
+      <li class="rv"><div><h3>Enquiry</h3><p>You send quality, weight, width, quantity and destination port. We reply with a quotation and available shades within two working days.</p></div></li>
+      <li class="rv"><div><h3>Sampling</h3><p>Header cuts and lab dips go out by courier. Bulk is only booked against your written approval.</p></div></li>
+      <li class="rv"><div><h3>Proforma invoice</h3><p>Price, Incoterm, payment terms, lead time and packing are fixed in writing before production.</p></div></li>
+      <li class="rv"><div><h3>Production</h3><p>Weaving, dyeing and finishing run to the approved recipe. You get a weekly status line with metres completed.</p></div></li>
+      <li class="rv"><div><h3>Inspection</h3><p>4-point inspection on the full lot, with the report and shade continuity cards shared before dispatch.</p></div></li>
+      <li class="rv"><div><h3>Dispatch and documents</h3><p>Stuffing photographs on loading, scanned documents the same day, originals couriered or sent through the bank.</p></div></li>
+    </ol>
+  </section>
+</div>
+
+<!-- ============ QUALITY ============ -->
+<div class="page" id="p-quality">
+  <section>
+    <div class="head-block rv split">
+      <h2>Quality and certification</h2>
+      <p class="lede">Fabric is checked at four points, not once at the end. Anything outside tolerance is held back before it reaches packing.</p>
+    </div>
+    <div class="rows">
+      <div class="row rv"><h3>Incoming yarn</h3><p>Count, lustre and dye affinity verified against the supplier's lot certificate. Rejected lots are returned, not blended in.</p></div>
+      <div class="row rv"><h3>On the loom</h3><p>Hourly pick and reed checks. Weaving faults are marked on the roll as they occur so they are traceable later.</p></div>
+      <div class="row rv"><h3>After dyeing and finishing</h3><p>Shade against the approved lab dip under D65 and TL84, plus GSM, width and hand feel on every batch.</p></div>
+      <div class="row rv"><h3>Before shipment</h3><p>Full-lot 4-point inspection, roll-wise metrage audit and a shade continuity card for every roll in the shipment.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="rv">
+    <table>
+      <caption>Test methods we work to</caption>
+      <thead><tr><th scope="col">Property</th><th scope="col">Method</th><th scope="col">Typical tolerance</th></tr></thead>
+      <tbody>
+        <tr><td>Mass per unit area</td><td>ISO 3801</td><td>±5% of approved GSM</td></tr>
+        <tr><td>Dimensional change on washing</td><td>ISO 6330 / AATCC 135</td><td>Within ±3%</td></tr>
+        <tr><td>Colourfastness to washing</td><td>ISO 105-C06</td><td>Grade 4 and above</td></tr>
+        <tr><td>Colourfastness to rubbing</td><td>ISO 105-X12</td><td>Dry 4, wet 3–4</td></tr>
+        <tr><td>Colourfastness to light</td><td>ISO 105-B02</td><td>Grade 4 and above</td></tr>
+        <tr><td>Tensile and tear strength</td><td>ISO 13934 / ISO 13937</td><td>Agreed per quality</td></tr>
+        <tr><td>Visual inspection</td><td>4-point system</td><td>Under 20 points per 100 m²</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="two">
+      <div class="head-block rv split"><h2>Registrations</h2>
+        <p class="muted small">Copies of any certificate are shared with the quotation on request.</p></div>
+      <div class="rows">
+        <div class="row rv"><h3>Import Export Code</h3><p>IEC AAFFW4081Q — issued to Worldweft Fabric LLP by DGFT, Government of India (Surat office).</p></div>
+        <div class="row rv"><h3>GST</h3><p>24XXXXXXXXXXXZX, Gujarat.</p></div>
+        <div class="row rv"><h3>Council membership</h3><p>Registered exporter with the relevant textile export promotion council.</p></div>
+        <div class="row rv"><h3>Product standards</h3><p>OEKO-TEX® Standard 100 and GRS certified qualities available on request, with the certificate number stated on the proforma.</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ CONTACT ============ -->
+<div class="page" id="p-contact">
+  <section>
+    <div class="head-block rv split">
+      <h2>Send an enquiry</h2>
+      <p class="lede">Tell us the quality, quantity and destination port. You will have a quotation within two working days.</p>
+    </div>
+    <div class="two">
+      <div class="contact-card rv">
+        <h3>Worldweft Fabric LLP</h3>
+        <dl>
+          <dt>Registered address</dt><dd>Plot No. 190–196, Gopi Industrial, NH-48, Pipodara, Mangrol, Kosamba, Surat, Gujarat 394110, India</dd>
+          <dt>Email</dt><dd><a href="mailto:sales@worldweftfabric.com">sales@worldweftfabric.com</a></dd>
+          <dt>Phone and WhatsApp</dt><dd><a href="tel:+917779086329">+91 77790 86329</a></dd>
+          <dt>Hours</dt><dd>Monday to Saturday, 10:00–19:00 IST (GMT+5:30)</dd>
+          <dt>Loading ports</dt><dd>Hazira, Mundra, Nhava Sheva</dd>
+        </dl>
+      </div>
+
+      <form class="enquiry rv" id="enquiry" novalidate>
+        <div class="sent" id="sent" hidden role="status" aria-live="polite">
+          <svg viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24"/><path d="M15 27l7 7 15-16"/></svg>
+          <h3>Enquiry received</h3>
+          <p id="sent-msg">Thank you. We will reply within two working days.</p>
+          <button class="btn ghost" type="button" id="again"><span>Send another enquiry</span></button>
+        </div>
+        <div class="hp" aria-hidden="true"><label for="f-hp">Leave this empty</label><input id="f-hp" name="_honey" tabindex="-1" autocomplete="off"></div>
+        <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" required autocomplete="name"></div>
+        <div class="field"><label for="f-company">Company</label><input id="f-company" name="company" autocomplete="organization"></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" required autocomplete="email"></div>
+        <div class="field"><label for="f-country">Destination country</label>
+          <select id="f-country" name="country"><option value="">Select a country</option></select></div>
+        <div class="field"><label for="f-port">Port of discharge</label>
+          <select id="f-port" name="port" disabled><option value="">Pick a country first</option></select></div>
+        <div class="field"><label for="f-fabric">Fabric quality</label>
+          <select id="f-fabric" name="fabric">
+            <option>Viscose georgette</option><option>Poly crepe</option><option>Satin and charmeuse</option>
+            <option>Cotton poplin and cambric</option><option>Linen-look and slub</option>
+            <option>Knits</option>
+            <option>Something else</option>
+          </select></div>
+        <div class="field"><label for="f-qty">Quantity in metres</label><input id="f-qty" name="qty" inputmode="numeric" placeholder="e.g. 5000"></div>
+        <div class="field wide"><label for="f-msg">Specification and anything else we should know</label>
+          <textarea id="f-msg" name="msg" placeholder="GSM, width, shades, Incoterm, delivery date"></textarea></div>
+        <p class="form-note" id="f-note" aria-live="polite">Goes straight to our sales team. We reply within two working days.</p>
+        <div class="cta-row" style="grid-column:1/-1;margin-top:0">
+          <button class="btn mag" type="submit" id="f-send"><span>Send enquiry</span></button>
+          <a class="btn ghost mag" id="wa" href="#" target="_blank" rel="noopener"><span>Send on WhatsApp</span></a>
+        </div>
+      </form>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Fabric photo">
+  <button class="lb-x" type="button">Close</button>
+  <button class="lb-nav prev" type="button" aria-label="Previous photo">‹</button>
+  <img alt="">
+  <button class="lb-nav next" type="button" aria-label="Next photo">›</button>
+  <p class="lb-cap"></p>
+</div>
+
+<footer>
+  <div class="foot">
+    <div>
+      <b style="font-family:'Bodoni Moda',serif;font-weight:400;letter-spacing:.1em">WORLD WEFT FABRIC</b>
+      <p class="small muted" style="margin-top:10px;max-width:34ch">Fabric manufacturer and exporter, Surat, Gujarat, India.</p>
+    </div>
+    <nav>
+      <a href="#/collections">Collections</a><a href="#/export">Export</a>
+      <a href="#/quality">Quality</a><a href="#/contact">Enquiry</a>
+    </nav>
+    <div class="small muted">
+      sales@worldweftfabric.com<br>+91 77790 86329<br><span id="yr"></span> World Weft Fabric
+    </div>
+  </div>
+</footer>
+</div>
+
+<script>
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- preloader ---- */
+  window.addEventListener('load',function(){
+    setTimeout(function(){document.getElementById('pre').classList.add('done');},reduce?0:1300);
+  });
+
+  /* ---- split headings into animated words ---- */
+  document.querySelectorAll('.split').forEach(function(el){
+    var h=el.querySelector('h1,h2')||el;
+    var walk=function(node){
+      Array.prototype.slice.call(node.childNodes).forEach(function(n){
+        if(n.nodeType===3){
+          var frag=document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(function(w){
+            if(!w.trim()){frag.appendChild(document.createTextNode(w));return;}
+            var o=document.createElement('span');o.className='word';
+            var i=document.createElement('span');i.textContent=w;o.appendChild(i);frag.appendChild(o);
+          });
+          node.replaceChild(frag,n);
+        }else if(n.nodeType===1&&!n.classList.contains('word')){walk(n);}
+      });
+    };
+    walk(h);
+    h.querySelectorAll('.word>span').forEach(function(s,i){s.style.transitionDelay=(i*0.06)+'s';});
+  });
+
+  /* ---- reveal on scroll ---- */
+  var io=new IntersectionObserver(function(en){
+    en.forEach(function(e){
+      if(e.isIntersecting){
+        var sibs=e.target.parentNode?Array.prototype.indexOf.call(e.target.parentNode.children,e.target):0;
+        e.target.style.transitionDelay=Math.min(sibs,6)*0.07+'s';
+        e.target.classList.add('seen');io.unobserve(e.target);
+      }
+    });
+  },{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+  function watch(root){(root||document).querySelectorAll('.rv:not(.seen)').forEach(function(el){io.observe(el);});}
+  watch();
+
+  /* ---- counters ---- */
+  var cio=new IntersectionObserver(function(en){
+    en.forEach(function(e){
+      if(!e.isIntersecting)return;
+      var el=e.target,to=parseFloat(el.dataset.count),pre=el.dataset.prefix||'',suf=el.dataset.suffix||'',t0=null;
+      if(reduce){el.textContent=pre+to.toLocaleString('en-IN')+suf;cio.unobserve(el);return;}
+      function step(t){
+        if(!t0)t0=t;var p=Math.min((t-t0)/1200,1);var e2=1-Math.pow(1-p,3);
+        el.textContent=pre+Math.round(to*e2).toLocaleString('en-IN')+suf;
+        if(p<1)requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);cio.unobserve(el);
+    });
+  },{threshold:.5});
+  document.querySelectorAll('[data-count]').forEach(function(el){cio.observe(el);});
+
+  /* ---- scroll progress, header state, parallax, step line ---- */
+  var prog=document.getElementById('prog'),hdr=document.getElementById('hdr'),
+      loom=document.getElementById('loom'),steps=document.getElementById('steps'),fill=document.getElementById('stepfill'),
+      tick=false;
+  function onScroll(){
+    if(tick)return;tick=true;
+    requestAnimationFrame(function(){
+      var y=window.scrollY,h=document.body.scrollHeight-window.innerHeight;
+      prog.style.width=(h>0?(y/h)*100:0)+'%';
+      hdr.classList.toggle('stuck',y>20);
+      if(loom&&!reduce)loom.style.transform='translateY('+(y*-0.06)+'px)';
+      if(steps&&fill&&steps.offsetParent){
+        var r=steps.getBoundingClientRect(),vh=window.innerHeight;
+        var p=Math.max(0,Math.min(1,(vh*0.75-r.top)/r.height));
+        fill.style.height=(p*(r.height-16))+'px';
+      }
+      tick=false;
+    });
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  /* ---- pointer glow + cursor ---- */
+  var glow=document.getElementById('glow'),cur=document.getElementById('cur');
+  if(window.matchMedia('(pointer:fine)').matches&&!reduce){
+    var gx=0,gy=0,cx=0,cy=0,tx=0,ty=0;
+    window.addEventListener('mousemove',function(e){tx=e.clientX;ty=e.clientY;glow.style.opacity='1';cur.style.opacity='1';});
+    (function loop(){
+      gx+=(tx-gx)*.07;gy+=(ty-gy)*.07;cx+=(tx-cx)*.22;cy+=(ty-cy)*.22;
+      glow.style.transform='translate('+gx+'px,'+gy+'px)';
+      cur.style.transform='translate('+cx+'px,'+cy+'px) translate(-50%,-50%)';
+      requestAnimationFrame(loop);
+    })();
+    document.addEventListener('mouseover',function(e){
+      cur.classList.toggle('big',!!(e.target.closest&&e.target.closest('a,button,.swatch')));
+    });
+  }
+
+  /* ---- 3D tilt on swatches ---- */
+  if(!reduce&&window.matchMedia('(pointer:fine)').matches){
+    document.querySelectorAll('.tilt').forEach(function(c){
+      c.addEventListener('mousemove',function(e){
+        var r=c.getBoundingClientRect();
+        var px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;
+        c.style.transform='perspective(900px) rotateY('+(px*7)+'deg) rotateX('+(-py*7)+'deg) translateY(-6px)';
+      });
+      c.addEventListener('mouseleave',function(){c.style.transform='';});
+    });
+  }
+
+  /* ---- magnetic buttons ---- */
+  if(!reduce&&window.matchMedia('(pointer:fine)').matches){
+    document.querySelectorAll('.mag').forEach(function(b){
+      b.addEventListener('mousemove',function(e){
+        var r=b.getBoundingClientRect();
+        b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.2)+'px,'+((e.clientY-r.top-r.height/2)*.28)+'px)';
+      });
+      b.addEventListener('mouseleave',function(){b.style.transform='';});
+    });
+  }
+
+  /* ---- photo galleries + lightbox ---- */
+  var lb=document.getElementById('lb'),lbImg=lb.querySelector('img'),lbCap=lb.querySelector('.lb-cap'),
+      lbSet=[],lbI=0,lbFrom=null;
+  function lbPaint(){
+    var im=lbSet[lbI];
+    lbImg.classList.add('swap');
+    setTimeout(function(){
+      lbImg.src=im.currentSrc||im.src;lbImg.alt=im.alt;
+      lbCap.textContent=im.alt+' — '+(lbI+1)+' of '+lbSet.length;
+      lbImg.classList.remove('swap');
+    },reduce?0:160);
+  }
+  function lbOpen(g,k){
+    lbSet=Array.prototype.slice.call(g.querySelectorAll('img'));lbI=k;lbFrom=g;
+    lbPaint();lb.hidden=false;document.body.style.overflow='hidden';
+    requestAnimationFrame(function(){lb.classList.add('open');});
+    lb.querySelector('.lb-x').focus();
+  }
+  function lbClose(){
+    lb.classList.remove('open');document.body.style.overflow='';
+    setTimeout(function(){lb.hidden=true;},reduce?0:400);
+    if(lbFrom)lbFrom.focus();
+  }
+  function lbGo(d){lbI=(lbI+d+lbSet.length)%lbSet.length;lbPaint();}
+  lb.querySelector('.lb-x').addEventListener('click',lbClose);
+  lb.querySelector('.prev').addEventListener('click',function(){lbGo(-1);});
+  lb.querySelector('.next').addEventListener('click',function(){lbGo(1);});
+  lb.addEventListener('click',function(e){if(e.target===lb)lbClose();});
+  document.addEventListener('keydown',function(e){
+    if(lb.hidden)return;
+    if(e.key==='Escape')lbClose();else if(e.key==='ArrowLeft')lbGo(-1);else if(e.key==='ArrowRight')lbGo(1);
+  });
+  var lx=0;
+  lb.addEventListener('touchstart',function(e){lx=e.touches[0].clientX;},{passive:true});
+  lb.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-lx;if(Math.abs(dx)>40)lbGo(dx<0?1:-1);});
+
+  document.querySelectorAll('[data-gallery]').forEach(function(g){
+    var imgs=g.querySelectorAll('img'),dots=g.querySelector('.dots'),count=g.querySelector('.count'),i=0,timer=null,sx=0,moved=false;
+    function show(k){
+      i=(k+imgs.length)%imgs.length;
+      imgs.forEach(function(im,j){im.classList.toggle('on',j===i);});
+      dots.querySelectorAll('button').forEach(function(b,j){b.classList.toggle('on',j===i);});
+      count.textContent=(i+1)+' / '+imgs.length;
+    }
+    function restart(){clearInterval(timer);if(!reduce)timer=setInterval(function(){if(g.offsetParent&&lb.hidden)show(i+1);},3800);}
+    imgs.forEach(function(_,k){
+      var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Photo '+(k+1)+' of '+imgs.length);
+      if(!k)b.className='on';
+      b.addEventListener('click',function(e){e.stopPropagation();show(k);restart();});
+      dots.appendChild(b);
+    });
+    g.addEventListener('mouseenter',function(){clearInterval(timer);});
+    g.addEventListener('mouseleave',restart);
+    g.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;moved=false;},{passive:true});
+    g.addEventListener('touchend',function(e){
+      var dx=e.changedTouches[0].clientX-sx;
+      if(Math.abs(dx)>40){moved=true;show(dx<0?i+1:i-1);restart();}
+    });
+    g.addEventListener('click',function(){if(moved){moved=false;return;}lbOpen(g,i);});
+    g.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();lbOpen(g,i);}});
+    restart();
+  });
+
+  /* ---- router with curtain wipe ---- */
+  var pages={'/':'p-home','/collections':'p-collections','/export':'p-export','/quality':'p-quality','/contact':'p-contact'};
+  var titles={'/':'World Weft Fabric — Fabric manufacturer and exporter, Surat, India',
+    '/collections':'Collections — World Weft Fabric','/export':'Export capability — World Weft Fabric',
+    '/quality':'Quality and certification — World Weft Fabric','/contact':'Send an enquiry — World Weft Fabric'};
+  var navLinks=document.querySelectorAll('nav.main a'),curtain=document.getElementById('curtain'),first=true;
+
+  function paint(h){
+    Object.keys(pages).forEach(function(k){document.getElementById(pages[k]).classList.toggle('on',k===h);});
+    navLinks.forEach(function(a){
+      var t=a.getAttribute('href').replace(/^#/,'');
+      if(t===h){a.setAttribute('aria-current','page');}else{a.removeAttribute('aria-current');}
+    });
+    document.title=titles[h];
+    window.scrollTo(0,0);
+    var page=document.getElementById(pages[h]);
+    page.querySelectorAll('.rv').forEach(function(el){el.classList.remove('seen');});
+    watch(page);onScroll();
+  }
+  function route(){
+    var h=location.hash.replace(/^#/,'')||'/';
+    if(!pages[h])h='/';
+    if(first||reduce){paint(h);first=false;return;}
+    curtain.classList.remove('out');curtain.classList.add('in');
+    setTimeout(function(){
+      paint(h);
+      curtain.classList.remove('in');curtain.classList.add('out');
+    },420);
+  }
+  window.addEventListener('hashchange',route);route();
+
+  /* ---- countries and their international ports ---- */
+  var PORTS={
+  "Afghanistan":"Kabul (air)|Hairatan (land)|Via Karachi, Pakistan|Via Bandar Abbas, Iran",
+  "Albania":"Durrës|Vlorë|Tirana (air)",
+  "Algeria":"Algiers|Oran|Annaba|Skikda|Béjaïa|Mostaganem",
+  "Andorra":"Andorra la Vella (road)|Via Barcelona, Spain",
+  "Angola":"Luanda|Lobito|Namibe|Cabinda",
+  "Antigua and Barbuda":"St. John's",
+  "Argentina":"Buenos Aires|Rosario|La Plata|Bahía Blanca|Zárate",
+  "Armenia":"Yerevan (air)|Via Poti, Georgia",
+  "Australia":"Sydney (Port Botany)|Melbourne|Brisbane|Fremantle|Adelaide|Darwin|Townsville",
+  "Austria":"Vienna (air)|Vienna (rail)|Via Hamburg, Germany|Via Koper, Slovenia",
+  "Azerbaijan":"Baku (Alat)|Baku (air)",
+  "Bahamas":"Nassau|Freeport",
+  "Bahrain":"Khalifa Bin Salman Port|Mina Salman|Bahrain (air)",
+  "Bangladesh":"Chattogram (Chittagong)|Mongla|Payra|Dhaka ICD (Kamalapur)|Dhaka (air)",
+  "Barbados":"Bridgetown",
+  "Belarus":"Minsk (air)|Brest (rail)|Via Klaipėda, Lithuania",
+  "Belgium":"Antwerp|Zeebrugge|Ghent|Ostend|Liège (air)",
+  "Belize":"Belize City|Big Creek",
+  "Benin":"Cotonou",
+  "Bhutan":"Phuentsholing (land)|Paro (air)|Via Kolkata, India",
+  "Bolivia":"La Paz (air)|Via Arica, Chile|Via Iquique, Chile",
+  "Bosnia and Herzegovina":"Sarajevo (air)|Via Ploče, Croatia",
+  "Botswana":"Gaborone (air)|Via Durban, South Africa|Via Walvis Bay, Namibia",
+  "Brazil":"Santos|Rio de Janeiro|Paranaguá|Itajaí|Navegantes|Suape|Salvador|Rio Grande|Vitória|Manaus|Fortaleza",
+  "Brunei":"Muara|Bandar Seri Begawan (air)",
+  "Bulgaria":"Varna|Burgas|Sofia (air)",
+  "Burkina Faso":"Ouagadougou (air)|Bobo-Dioulasso (dry port)|Via Tema, Ghana|Via Abidjan, Côte d'Ivoire",
+  "Burundi":"Bujumbura (air)|Via Dar es Salaam, Tanzania|Via Mombasa, Kenya",
+  "Cambodia":"Sihanoukville|Phnom Penh|Phnom Penh (air)",
+  "Cameroon":"Douala|Kribi|Limbé",
+  "Canada":"Vancouver|Montreal|Halifax|Prince Rupert|Saint John|Toronto (rail)|Toronto (air)",
+  "Cape Verde":"Praia|Mindelo",
+  "Central African Republic":"Bangui (air)|Via Douala, Cameroon",
+  "Chad":"N'Djamena (air)|Via Douala, Cameroon",
+  "Chile":"San Antonio|Valparaíso|Iquique|Arica|Coronel|Puerto Angamos",
+  "China":"Shanghai|Ningbo-Zhoushan|Shenzhen (Yantian)|Guangzhou (Nansha)|Qingdao|Tianjin|Xiamen|Dalian|Lianyungang|Fuzhou|Shekou",
+  "Colombia":"Cartagena|Barranquilla|Buenaventura|Santa Marta|Bogotá (air)",
+  "Comoros":"Moroni|Mutsamudu",
+  "Congo (Brazzaville)":"Pointe-Noire|Brazzaville",
+  "Congo (DR)":"Matadi|Boma|Banana|Kinshasa (air)",
+  "Costa Rica":"Puerto Limón (Moín)|Caldera|San José (air)",
+  "Côte d'Ivoire":"Abidjan|San Pédro",
+  "Croatia":"Rijeka|Ploče|Split|Zadar",
+  "Cuba":"Mariel|Havana|Santiago de Cuba",
+  "Cyprus":"Limassol|Larnaca",
+  "Czechia":"Prague (air)|Prague (rail)|Via Hamburg, Germany",
+  "Denmark":"Aarhus|Copenhagen|Esbjerg|Fredericia",
+  "Djibouti":"Djibouti (Doraleh)|Djibouti (air)",
+  "Dominica":"Roseau",
+  "Dominican Republic":"Caucedo|Haina|Puerto Plata|Santo Domingo (air)",
+  "Ecuador":"Guayaquil|Posorja|Manta|Esmeraldas",
+  "Egypt":"Alexandria|Port Said|Damietta|Ain Sokhna|Suez|Cairo (air)",
+  "El Salvador":"Acajutla|La Unión|San Salvador (air)",
+  "Equatorial Guinea":"Malabo|Bata",
+  "Eritrea":"Massawa|Assab",
+  "Estonia":"Tallinn (Muuga)|Paldiski",
+  "Eswatini":"Matsapha (dry port)|Via Durban, South Africa",
+  "Ethiopia":"Addis Ababa (air)|Modjo (dry port)|Via Djibouti",
+  "Fiji":"Suva|Lautoka",
+  "Finland":"Helsinki|Kotka-Hamina|Rauma|Turku",
+  "France":"Le Havre|Marseille (Fos)|Dunkirk|Rouen|Bordeaux|Paris (air)",
+  "Gabon":"Libreville (Owendo)|Port-Gentil",
+  "Gambia":"Banjul",
+  "Georgia":"Poti|Batumi|Tbilisi (air)",
+  "Germany":"Hamburg|Bremerhaven|Bremen|Wilhelmshaven|Duisburg (rail)|Frankfurt (air)",
+  "Ghana":"Tema|Takoradi|Accra (air)",
+  "Greece":"Piraeus|Thessaloniki|Patras|Heraklion",
+  "Grenada":"St. George's",
+  "Guatemala":"Puerto Quetzal|Santo Tomás de Castilla|Puerto Barrios",
+  "Guinea":"Conakry",
+  "Guinea-Bissau":"Bissau",
+  "Guyana":"Georgetown",
+  "Haiti":"Port-au-Prince|Cap-Haïtien",
+  "Honduras":"Puerto Cortés|Puerto Castilla|San Pedro Sula (air)",
+  "Hong Kong SAR":"Hong Kong|Hong Kong (air)",
+  "Hungary":"Budapest (air)|Budapest (rail)|Via Koper, Slovenia|Via Hamburg, Germany",
+  "Iceland":"Reykjavík|Hafnarfjörður",
+  "India":"Nhava Sheva (JNPT)|Mundra|Hazira|Pipavav|Kandla|Chennai|Kolkata|Cochin|Tuticorin|Visakhapatnam|Delhi ICD (Tughlakabad)|Mumbai (air)",
+  "Indonesia":"Tanjung Priok (Jakarta)|Tanjung Perak (Surabaya)|Belawan (Medan)|Semarang|Makassar|Batam",
+  "Iran":"Bandar Abbas (Shahid Rajaee)|Bushehr|Chabahar|Tehran (air)",
+  "Iraq":"Umm Qasr|Basra|Baghdad (air)|Erbil (air)",
+  "Ireland":"Dublin|Cork|Waterford|Shannon (air)",
+  "Israel":"Haifa|Ashdod|Tel Aviv (air)",
+  "Italy":"Genoa|La Spezia|Livorno|Naples|Gioia Tauro|Trieste|Venice|Ravenna|Milan (air)",
+  "Jamaica":"Kingston|Montego Bay",
+  "Japan":"Tokyo|Yokohama|Kobe|Osaka|Nagoya|Hakata|Narita (air)",
+  "Jordan":"Aqaba|Amman (air)",
+  "Kazakhstan":"Almaty (dry port)|Aktau|Khorgos (rail)|Astana (air)",
+  "Kenya":"Mombasa|Lamu|Nairobi ICD|Nairobi (air)",
+  "Kiribati":"Betio (Tarawa)",
+  "Kosovo":"Pristina (air)|Via Durrës, Albania|Via Thessaloniki, Greece",
+  "Kuwait":"Shuwaikh|Shuaiba|Kuwait (air)",
+  "Kyrgyzstan":"Bishkek (dry port)|Bishkek (air)|Osh",
+  "Laos":"Vientiane (dry port)|Thanaleng|Via Laem Chabang, Thailand",
+  "Latvia":"Riga|Ventspils|Liepāja",
+  "Lebanon":"Beirut|Tripoli",
+  "Lesotho":"Maseru (dry port)|Via Durban, South Africa",
+  "Liberia":"Monrovia|Buchanan",
+  "Libya":"Tripoli|Benghazi|Misrata|Al Khums",
+  "Liechtenstein":"Via Rotterdam, Netherlands|Zurich (air)",
+  "Lithuania":"Klaipėda|Vilnius (air)",
+  "Luxembourg":"Luxembourg (air)|Bettembourg (rail)|Via Antwerp, Belgium",
+  "Madagascar":"Toamasina|Mahajanga|Antananarivo (air)",
+  "Malawi":"Lilongwe (air)|Via Beira, Mozambique|Via Nacala, Mozambique",
+  "Malaysia":"Port Klang|Tanjung Pelepas|Penang|Pasir Gudang (Johor)|Kuching|Kota Kinabalu",
+  "Maldives":"Malé|Malé (air)",
+  "Mali":"Bamako (dry port)|Bamako (air)|Via Dakar, Senegal|Via Abidjan, Côte d'Ivoire",
+  "Malta":"Marsaxlokk (Malta Freeport)|Valletta",
+  "Marshall Islands":"Majuro",
+  "Mauritania":"Nouakchott|Nouadhibou",
+  "Mauritius":"Port Louis",
+  "Mexico":"Manzanillo|Veracruz|Lázaro Cárdenas|Altamira|Ensenada|Progreso|Mexico City (air)",
+  "Micronesia":"Pohnpei|Chuuk",
+  "Moldova":"Giurgiulești|Chișinău (air)",
+  "Monaco":"Via Marseille, France|Nice (air)",
+  "Mongolia":"Ulaanbaatar (dry port)|Zamyn-Üüd (rail)|Via Tianjin, China",
+  "Montenegro":"Bar|Podgorica (air)",
+  "Morocco":"Casablanca|Tanger Med|Agadir|Jorf Lasfar|Nador",
+  "Mozambique":"Maputo|Beira|Nacala|Pemba",
+  "Myanmar":"Yangon|Thilawa|Yangon (air)",
+  "Namibia":"Walvis Bay|Lüderitz",
+  "Nauru":"Nauru (Aiwo)",
+  "Nepal":"Birgunj (dry port)|Kathmandu (air)|Via Kolkata, India|Via Visakhapatnam, India",
+  "Netherlands":"Rotterdam|Amsterdam|Vlissingen|Moerdijk|Schiphol (air)",
+  "New Zealand":"Auckland|Tauranga|Lyttelton (Christchurch)|Napier|Wellington|Otago (Port Chalmers)",
+  "Nicaragua":"Corinto|Puerto Cabezas|Managua (air)",
+  "Niger":"Niamey (dry port)|Niamey (air)|Via Cotonou, Benin|Via Lomé, Togo",
+  "Nigeria":"Lagos (Apapa)|Lagos (Tin Can Island)|Lekki|Onne|Port Harcourt|Calabar|Warri|Lagos (air)",
+  "North Macedonia":"Skopje (air)|Via Thessaloniki, Greece",
+  "Norway":"Oslo|Bergen|Stavanger|Kristiansand",
+  "Oman":"Sohar|Salalah|Duqm|Muscat (air)",
+  "Pakistan":"Karachi|Port Qasim|Gwadar|Lahore (air)|Sialkot (air)",
+  "Palau":"Malakal",
+  "Palestine":"Via Ashdod, Israel|Via Amman, Jordan",
+  "Panama":"Colón (Manzanillo)|Cristóbal|Balboa|Panama City (air)",
+  "Papua New Guinea":"Port Moresby|Lae|Rabaul",
+  "Paraguay":"Asunción (river)|Villeta|Via Montevideo, Uruguay|Via Buenos Aires, Argentina",
+  "Peru":"Callao|Paita|Matarani|Lima (air)",
+  "Philippines":"Manila|Subic Bay|Cebu|Davao|Batangas|General Santos",
+  "Poland":"Gdańsk|Gdynia|Szczecin-Świnoujście|Warsaw (air)",
+  "Portugal":"Lisbon|Leixões (Porto)|Sines|Setúbal|Figueira da Foz",
+  "Puerto Rico":"San Juan|Ponce",
+  "Qatar":"Hamad Port|Doha (air)",
+  "Romania":"Constanța|Bucharest (air)",
+  "Russia":"St Petersburg|Novorossiysk|Vladivostok|Kaliningrad|Moscow (air)",
+  "Rwanda":"Kigali (dry port)|Kigali (air)|Via Mombasa, Kenya|Via Dar es Salaam, Tanzania",
+  "Samoa":"Apia",
+  "San Marino":"Via Ravenna, Italy|Bologna (air)",
+  "São Tomé and Príncipe":"São Tomé",
+  "Saudi Arabia":"Jeddah (Islamic Port)|Dammam (King Abdulaziz)|King Abdullah Port|Jubail|Yanbu|Riyadh (dry port)|Riyadh (air)",
+  "Senegal":"Dakar|Dakar (air)",
+  "Serbia":"Belgrade (rail)|Belgrade (air)|Via Rijeka, Croatia|Via Thessaloniki, Greece",
+  "Seychelles":"Victoria",
+  "Sierra Leone":"Freetown",
+  "Singapore":"Singapore|Singapore (air)",
+  "Slovakia":"Bratislava (rail)|Bratislava (air)|Via Hamburg, Germany|Via Koper, Slovenia",
+  "Slovenia":"Koper|Ljubljana (air)",
+  "Solomon Islands":"Honiara",
+  "Somalia":"Mogadishu|Berbera|Bosaso",
+  "South Africa":"Durban|Cape Town|Gqeberha (Port Elizabeth)|Ngqura|Richards Bay|East London|Johannesburg (air)",
+  "South Korea":"Busan|Incheon|Gwangyang|Pyeongtaek|Seoul (air)",
+  "South Sudan":"Juba (air)|Via Mombasa, Kenya",
+  "Spain":"Valencia|Barcelona|Algeciras|Bilbao|Málaga|Las Palmas|Madrid (air)",
+  "Sri Lanka":"Colombo|Hambantota|Colombo (air)",
+  "St Kitts and Nevis":"Basseterre",
+  "St Lucia":"Castries|Vieux Fort",
+  "St Vincent and the Grenadines":"Kingstown",
+  "Sudan":"Port Sudan|Khartoum (air)",
+  "Suriname":"Paramaribo",
+  "Sweden":"Gothenburg|Stockholm|Helsingborg|Malmö",
+  "Switzerland":"Basel (rail)|Zurich (air)|Via Rotterdam, Netherlands|Via Genoa, Italy",
+  "Syria":"Latakia|Tartus",
+  "Taiwan":"Kaohsiung|Keelung|Taichung|Taipei (air)",
+  "Tajikistan":"Dushanbe (dry port)|Dushanbe (air)",
+  "Tanzania":"Dar es Salaam|Tanga|Zanzibar|Mtwara",
+  "Thailand":"Laem Chabang|Bangkok (Klong Toey)|Songkhla|Bangkok (air)",
+  "Timor-Leste":"Dili",
+  "Togo":"Lomé",
+  "Tonga":"Nuku'alofa",
+  "Trinidad and Tobago":"Port of Spain|Point Lisas",
+  "Tunisia":"Radès (Tunis)|Sfax|Sousse|Bizerte",
+  "Türkiye":"Istanbul (Ambarlı)|Mersin|Izmir (Aliağa)|Gemlik|İskenderun|Istanbul (air)",
+  "Turkmenistan":"Turkmenbashi|Ashgabat (air)",
+  "Tuvalu":"Funafuti",
+  "Uganda":"Kampala (ICD)|Entebbe (air)|Via Mombasa, Kenya",
+  "Ukraine":"Odesa|Chornomorsk|Pivdennyi",
+  "United Arab Emirates":"Jebel Ali (Dubai)|Khalifa Port (Abu Dhabi)|Khor Fakkan (Sharjah)|Sharjah (Port Khalid)|Hamriyah|Ajman|Fujairah|Dubai (air)",
+  "United Kingdom":"Felixstowe|Southampton|London Gateway|Liverpool|Tilbury|Immingham|Belfast|Heathrow (air)",
+  "United States":"New York / Newark|Los Angeles|Long Beach|Savannah|Houston|Charleston|Norfolk|Seattle|Tacoma|Oakland|Miami|Port Everglades|Baltimore|Philadelphia|New Orleans|Jacksonville|Boston|Chicago (rail)|Dallas (rail)|Atlanta (air)|New York JFK (air)|Los Angeles LAX (air)",
+  "Uruguay":"Montevideo|Nueva Palmira",
+  "Uzbekistan":"Tashkent (dry port)|Tashkent (air)",
+  "Vanuatu":"Port Vila|Luganville (Santo)",
+  "Venezuela":"Puerto Cabello|La Guaira|Maracaibo",
+  "Vietnam":"Ho Chi Minh (Cat Lai)|Cai Mep|Haiphong|Da Nang|Hanoi (air)",
+  "Yemen":"Aden|Hodeidah|Mukalla",
+  "Zambia":"Lusaka (dry port)|Via Dar es Salaam, Tanzania|Via Durban, South Africa",
+  "Zimbabwe":"Harare (dry port)|Via Beira, Mozambique|Via Durban, South Africa",
+  "Other country":"Tell us in the message"
+  };
+
+  var ALIAS={'United Arab Emirates':'uae emirates dubai abu dhabi sharjah','United States':'usa us america',
+    'United Kingdom':'uk britain great britain england','Türkiye':'turkey','South Korea':'korea',
+    'Czechia':'czech republic','Côte d\'Ivoire':'ivory coast','Myanmar':'burma','Netherlands':'holland',
+    'Saudi Arabia':'ksa','Eswatini':'swaziland','Congo (DR)':'drc democratic republic','Congo (Brazzaville)':'republic of the congo',
+    'Cape Verde':'cabo verde','Hong Kong SAR':'hk','Russia':'russian federation','Vietnam':'viet nam','Iran':'persia'};
+  function portTag(p){
+    var l=p.toLowerCase();
+    if(l.indexOf('via ')===0)return 'Transit';
+    if(l.indexOf('(air)')>-1||l==='air freight')return 'Air';
+    if(l.indexOf('(rail)')>-1)return 'Rail';
+    if(l.indexOf('dry port')>-1||/\bicd\b/.test(l))return 'Inland';
+    if(l.indexOf('(land)')>-1)return 'Land';
+    if(l.indexOf('(river)')>-1)return 'River';
+    if(l.indexOf('another port')===0)return '';
+    return 'Sea';
+  }
+  function portOpt(label,value){
+    var o=new Option(label,value),t=portTag(value);
+    if(t)o.dataset.tag=t;
+    o.dataset.label=label.replace(/\s*\((air|rail|dry port|land|river)\)/i,'');
+    return o;
+  }
+  var cSel=document.getElementById('f-country'),pSel=document.getElementById('f-port');
+  Object.keys(PORTS).sort(function(a,b){
+    if(a==='Other country')return 1;if(b==='Other country')return -1;
+    return a.localeCompare(b);
+  }).forEach(function(c){
+    var o=document.createElement('option');o.value=c;o.textContent=c;
+    var n=PORTS[c].split('|').length;
+    if(c!=='Other country')o.dataset.meta=n+(n===1?' port':' ports');
+    if(ALIAS[c])o.dataset.kw=ALIAS[c];
+    cSel.appendChild(o);
+  });
+  cSel.addEventListener('change',function(){
+    var c=cSel.value;
+    pSel.innerHTML='';
+    if(!c){
+      pSel.disabled=true;
+      pSel.appendChild(new Option('Pick a country first',''));
+      return;
+    }
+    pSel.disabled=false;
+    pSel.appendChild(new Option('Select a port',''));
+    PORTS[c].split('|').forEach(function(p){pSel.appendChild(portOpt(p,p));});
+    var x1=portOpt('Another port — I will confirm','Another port — to be confirmed'),x2=portOpt('Air freight','Air freight');
+    x1.dataset.extra='1';x2.dataset.extra='1';pSel.appendChild(x1);pSel.appendChild(x2);
+    pSel.classList.remove('pop');void pSel.offsetWidth;pSel.classList.add('pop');
+  });
+
+  /* ---- custom dropdowns (country, port, fabric) ---- */
+  var scrim=document.createElement('div');scrim.className='csel-scrim';scrim.hidden=true;
+  document.querySelector('.shell').appendChild(scrim);
+  var openSel=null,isSheet=function(){return window.matchMedia('(max-width:760px)').matches;},
+      finePtr=window.matchMedia('(pointer:fine)').matches;
+  function norm(t){return (t||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();}
+  function esc(t){return t.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  var CK='<svg class="ck" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5"/></svg>';
+
+  function enhance(sel,cfg){
+    var wrap=document.createElement('div');wrap.className='csel';
+    sel.parentNode.insertBefore(wrap,sel);wrap.appendChild(sel);
+    sel.classList.add('csel-native');sel.tabIndex=-1;sel.setAttribute('aria-hidden','true');
+    var label=document.querySelector('label[for="'+sel.id+'"]'),lbl=label?label.textContent:'';
+    var btn=document.createElement('button');btn.type='button';btn.className='csel-btn';btn.id=sel.id+'-btn';
+    btn.setAttribute('aria-haspopup','listbox');btn.setAttribute('aria-expanded','false');
+    if(label){label.htmlFor=btn.id;label.id=sel.id+'-lbl';btn.setAttribute('aria-labelledby',label.id+' '+btn.id);}
+    btn.innerHTML='<span class="csel-val"></span><svg class="csel-chev" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5l5 5 5-5"/></svg>';
+    var pop=document.createElement('div');pop.className='csel-pop';pop.hidden=true;
+    pop.innerHTML='<div class="csel-head">'+esc(lbl)+'</div>'+
+      (cfg.search?'<div class="csel-search"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.8"/><path d="M13 13l4.5 4.5"/></svg>'+
+        '<input type="text" autocomplete="off" spellcheck="false" placeholder="'+cfg.search+'" aria-label="'+cfg.search+'" role="combobox" aria-expanded="true" aria-controls="'+sel.id+'-list"></div>':'')+
+      '<ul class="csel-list" role="listbox" id="'+sel.id+'-list" tabindex="-1" aria-label="'+esc(lbl)+'"></ul>'+
+      '<p class="csel-empty" hidden>No match. Try another spelling.</p>';
+    wrap.appendChild(btn);wrap.appendChild(pop);
+    var list=pop.querySelector('.csel-list'),q=pop.querySelector('.csel-search input'),
+        empty=pop.querySelector('.csel-empty'),opts=[],act=-1;
+
+    function items(){
+      return Array.prototype.filter.call(sel.options,function(o){return o.value!=='';}).map(function(o){
+        return {v:o.value,t:o.dataset.label||o.textContent,meta:o.dataset.meta||'',tag:o.dataset.tag||'',
+                x:!!o.dataset.extra,kw:norm((o.dataset.label||o.textContent)+' '+(o.dataset.kw||''))};
+      });
+    }
+    function tagHTML(t){return t?'<span class="csel-tag t-'+t.toLowerCase()+'">'+t+'</span>':'';}
+    function hl(text,term){
+      if(!term)return esc(text);
+      var n=norm(text),k=n.indexOf(term);
+      if(k<0||n.length!==text.length)return esc(text);
+      return esc(text.slice(0,k))+'<mark>'+esc(text.slice(k,k+term.length))+'</mark>'+esc(text.slice(k+term.length));
+    }
+    function render(term){
+      term=norm(term).trim();
+      var all=items(),html='',i=0,sepDone=false;
+      function li(it,key){
+        var sel_=it.v===sel.value;
+        var h='';
+        if(it.x&&!sepDone){h+='<li class="csel-div" role="presentation"></li>';sepDone=true;}
+        return h+'<li class="csel-opt'+(it.x?' x':'')+'" role="option" id="'+sel.id+'-o'+key+'" data-v="'+esc(it.v)+'" aria-selected="'+sel_+'" style="--i:'+Math.min(i++,18)+'">'+
+          '<span class="csel-t">'+hl(it.t,term)+'</span>'+tagHTML(it.tag)+(it.meta?'<span class="csel-meta">'+it.meta+'</span>':'')+CK+'</li>';
+      }
+      if(term){
+        all.filter(function(it){return it.kw.indexOf(term)>-1;})
+           .sort(function(a,b){return (norm(a.t).indexOf(term)===0?0:1)-(norm(b.t).indexOf(term)===0?0:1);})
+           .forEach(function(it,k){html+=li(it,'f'+k);});
+      }else{
+        if(cfg.popular){
+          var pop_=all.filter(function(it){return cfg.popular.indexOf(it.v)>-1;});
+          pop_.sort(function(a,b){return cfg.popular.indexOf(a.v)-cfg.popular.indexOf(b.v);});
+          if(pop_.length){
+            html+='<li class="csel-grp" role="presentation">Key markets</li>';
+            pop_.forEach(function(it,k){html+=li(it,'p'+k);});
+            html+='<li class="csel-grp" role="presentation">All countries</li>';
+          }
+        }
+        all.forEach(function(it,k){html+=li(it,'a'+k);});
+      }
+      list.innerHTML=html;
+      opts=Array.prototype.slice.call(list.querySelectorAll('.csel-opt'));
+      empty.hidden=opts.length>0;
+      var cur=opts.findIndex(function(o){return o.dataset.v===sel.value;});
+      setAct(term?0:(cur>-1?cur:0),!term);
+    }
+    function setAct(k,center){
+      if(!opts.length){act=-1;return;}
+      act=Math.max(0,Math.min(k,opts.length-1));
+      opts.forEach(function(o,j){o.classList.toggle('act',j===act);});
+      var o=opts[act];(q||list).setAttribute('aria-activedescendant',o.id);
+      var lt=list.scrollTop,lh=list.clientHeight,ot=o.offsetTop,oh=o.offsetHeight;
+      if(center)list.scrollTop=ot-lh/2+oh/2;
+      else if(ot<lt)list.scrollTop=ot-6;else if(ot+oh>lt+lh)list.scrollTop=ot+oh-lh+6;
+    }
+    function sync(){
+      var o=sel.options[sel.selectedIndex],val=btn.querySelector('.csel-val');
+      var has=o&&o.value!=='';
+      val.textContent=o?(o.dataset.label||o.textContent):'';
+      val.classList.toggle('ph',!has);
+      var old=btn.querySelector('.csel-tag');if(old)old.remove();
+      if(has&&o.dataset.tag)val.insertAdjacentHTML('afterend',tagHTML(o.dataset.tag));
+      btn.disabled=sel.disabled;
+    }
+    function open(){
+      if(sel.disabled)return;
+      if(openSel&&openSel!==api)openSel.close(true);
+      openSel=api;
+      if(q)q.value='';
+      pop.hidden=false;wrap.classList.add('is-open');btn.setAttribute('aria-expanded','true');
+      var r=btn.getBoundingClientRect(),below=window.innerHeight-r.bottom,need=390;
+      wrap.classList.remove('up');
+      if(!isSheet()&&below<need)window.scrollBy({top:need-below,behavior:reduce?'auto':'smooth'});
+      render('');
+      if(isSheet()){scrim.hidden=false;document.body.style.overflow='hidden';requestAnimationFrame(function(){scrim.classList.add('on');});}
+      requestAnimationFrame(function(){pop.classList.add('open');});
+      if(q&&finePtr)q.focus();else list.focus({preventScroll:true});
+    }
+    function close(silent){
+      if(openSel===api)openSel=null;
+      pop.classList.remove('open');wrap.classList.remove('is-open');btn.setAttribute('aria-expanded','false');
+      scrim.classList.remove('on');document.body.style.overflow='';
+      setTimeout(function(){if(!wrap.classList.contains('is-open')){pop.hidden=true;if(!openSel)scrim.hidden=true;}},reduce?0:320);
+      if(!silent)btn.focus({preventScroll:true});
+    }
+    function choose(v){
+      sel.value=v;sel.dispatchEvent(new Event('change',{bubbles:true}));sync();close();
+      if(cfg.next)setTimeout(function(){var nb=document.getElementById(cfg.next+'-btn');if(nb&&!nb.disabled)nb.focus({preventScroll:true});},60);
+    }
+    function keys(e){
+      if(e.key==='ArrowDown'){e.preventDefault();setAct(act+1);}
+      else if(e.key==='ArrowUp'){e.preventDefault();setAct(act-1);}
+      else if(e.key==='Home'&&!q){e.preventDefault();setAct(0);}
+      else if(e.key==='End'&&!q){e.preventDefault();setAct(opts.length-1);}
+      else if(e.key==='PageDown'){e.preventDefault();setAct(act+8);}
+      else if(e.key==='PageUp'){e.preventDefault();setAct(act-8);}
+      else if(e.key==='Enter'){e.preventDefault();if(act>-1)choose(opts[act].dataset.v);}
+      else if(e.key==='Escape'){e.preventDefault();close();}
+      else if(e.key==='Tab'){close(true);}
+    }
+    btn.addEventListener('click',function(){wrap.classList.contains('is-open')?close():open();});
+    btn.addEventListener('keydown',function(e){
+      if(['ArrowDown','ArrowUp','Enter',' '].indexOf(e.key)>-1){e.preventDefault();open();}
+      else if(q&&e.key.length===1&&!e.ctrlKey&&!e.metaKey&&!e.altKey){open();q.value=e.key;render(q.value);e.preventDefault();}
+    });
+    list.addEventListener('keydown',keys);
+    if(q){q.addEventListener('input',function(){render(q.value);});q.addEventListener('keydown',keys);}
+    list.addEventListener('mousemove',function(e){
+      var o=e.target.closest('.csel-opt');if(o){var k=opts.indexOf(o);if(k!==act&&k>-1){act=k;opts.forEach(function(x,j){x.classList.toggle('act',j===k);});}}
+    });
+    list.addEventListener('click',function(e){var o=e.target.closest('.csel-opt');if(o)choose(o.dataset.v);});
+    new MutationObserver(sync).observe(sel,{childList:true,attributes:true,attributeFilter:['disabled']});
+    sel.addEventListener('change',sync);
+    var api={close:close,sync:sync,wrap:wrap};
+    sync();
+    return api;
+  }
+  var dd=[
+    enhance(cSel,{search:'Search country',next:'f-port',
+      popular:['United Arab Emirates','Saudi Arabia','United States','United Kingdom','Bangladesh','Sri Lanka','Egypt','Nigeria','Kenya']}),
+    enhance(pSel,{search:'Search port'}),
+    enhance(document.getElementById('f-fabric'),{})
+  ];
+  document.addEventListener('mousedown',function(e){
+    if(openSel&&!openSel.wrap.contains(e.target))openSel.close(true);
+  });
+  scrim.addEventListener('click',function(){if(openSel)openSel.close(true);});
+  document.getElementById('enquiry').addEventListener('reset',function(){setTimeout(function(){dd.forEach(function(d){d.sync();});},0);});
+
+  /* ---- enquiry form ---- */
+  var form=document.getElementById('enquiry');
+  function v(id){return (document.getElementById(id).value||'').trim();}
+  function compose(){return{name:v('f-name'),email:v('f-email'),company:v('f-company'),
+    country:document.getElementById('f-country').value,port:document.getElementById('f-port').value,
+    fabric:document.getElementById('f-fabric').value,qty:v('f-qty'),msg:v('f-msg')};}
+  function bodyText(d){
+    return 'Fabric: '+d.fabric+'\n'+'Quantity: '+(d.qty||'not stated')+' m\n'+
+      'Country: '+(d.country||'not stated')+'\n'+'Port of discharge: '+(d.port||'not stated')+'\n\n'+
+      'Specification:\n'+(d.msg||'-')+'\n\n'+
+      '— '+d.name+(d.company?', '+d.company:'')+'\n'+d.email;
+  }
+  /* Enquiries are delivered to this inbox by FormSubmit (formsubmit.co).
+     After activation you can swap the address for the random alias FormSubmit gives you. */
+  var FORM_ENDPOINT='https://formsubmit.co/ajax/sales@worldweftfabric.com';
+  var note=document.getElementById('f-note'),send=document.getElementById('f-send'),
+      sent=document.getElementById('sent'),noteText=note.textContent;
+  function fail(msg){
+    note.className='form-note err';
+    note.innerHTML=msg+' You can also write to <a href="mailto:sales@worldweftfabric.com">sales@worldweftfabric.com</a> or use WhatsApp.';
+  }
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var d=compose();
+    if(!d.name||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)){
+      note.className='form-note err';
+      note.textContent=d.name?'Please check your email address so we can reply.':'Add your name and email so we can reply with the quotation.';
+      (d.name?document.getElementById('f-email'):document.getElementById('f-name')).focus();
+      return;
+    }
+    if(document.getElementById('f-hp').value){showSent(d);return;}
+    send.classList.add('busy');send.querySelector('span').textContent='Sending';
+    note.className='form-note';note.textContent='Sending your enquiry…';
+    fetch(FORM_ENDPOINT,{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({
+        'Name':d.name,'Company':d.company||'-','Email':d.email,
+        'Country':d.country||'-','Port of discharge':d.port||'-',
+        'Fabric':d.fabric,'Quantity (m)':d.qty||'-','Message':d.msg||'-',
+        _replyto:d.email,
+        _subject:'New enquiry — '+d.fabric+(d.country?' — '+d.country:'')+' — '+d.name,
+        _template:'table',_captcha:'false'
+      })
+    }).then(function(r){return r.json();}).then(function(res){
+      if(String(res.success)==='true'){showSent(d);}
+      else{fail('Your enquiry could not be sent just now.');console.warn('FormSubmit:',res);}
+    }).catch(function(err){
+      fail('Your enquiry could not be sent — please check your connection and try again.');console.warn(err);
+    }).then(function(){
+      send.classList.remove('busy');send.querySelector('span').textContent='Send enquiry';
+    });
+  });
+  function showSent(d){
+    document.getElementById('sent-msg').textContent='Thank you, '+d.name.split(' ')[0]+'. We will reply to '+d.email+' within two working days.';
+    sent.hidden=false;form.classList.add('done');
+    form.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});
+  }
+  document.getElementById('again').addEventListener('click',function(){
+    form.reset();form.classList.remove('done');sent.hidden=true;
+    document.getElementById('f-country').dispatchEvent(new Event('change'));
+    note.className='form-note';note.textContent=noteText;
+    document.getElementById('f-name').focus();
+  });
+  document.getElementById('wa').addEventListener('click',function(e){
+    e.preventDefault();var d=compose();
+    window.open('https://wa.me/917779086329?text='+
+      encodeURIComponent('Fabric enquiry from '+(d.name||'—')+(d.company?' ('+d.company+')':'')+'\n'+bodyText(d)),
+      '_blank','noopener');
+  });
+
+  document.getElementById('yr').textContent='© '+new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
