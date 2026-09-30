@@ -72,18 +72,30 @@ p{margin:0 0 1em;max-width:66ch}
 .curtain.in{transform:scaleY(1);transform-origin:bottom}
 .curtain.out{transform:scaleY(0);transform-origin:top}
 
-/* preloader */
-#pre{position:fixed;inset:0;z-index:90;background:var(--noir);display:grid;place-items:center;
-  transition:opacity .6s var(--ease),visibility .6s}
+/* preloader — full-page weave with the mark in the middle */
+#pre{position:fixed;inset:0;z-index:90;background:var(--noir);display:grid;place-items:center;overflow:hidden;
+  transition:opacity .55s var(--ease),visibility .55s}
 #pre.done{opacity:0;visibility:hidden}
-#pre .pl{width:min(320px,70vw)}
-#pre .pw{stroke:rgba(237,231,220,.14);stroke-width:1}
-#pre .pf{stroke:var(--champagne);stroke-width:1.6;fill:none;stroke-dasharray:300;stroke-dashoffset:300;
-  animation:draw .9s var(--ease) forwards}
-#pre .pf:nth-of-type(2){animation-delay:.1s}#pre .pf:nth-of-type(3){animation-delay:.2s}
-#pre .pf:nth-of-type(4){animation-delay:.3s}#pre .pf:nth-of-type(5){animation-delay:.4s}
-#pre .plabel{margin-top:22px;text-align:center;font-size:.72rem;letter-spacing:.42em;color:var(--ash);
-  opacity:0;animation:fadeUp .7s .5s var(--ease) forwards}
+.pre-weave{position:absolute;inset:0}
+.pre-weave i{position:absolute;display:block}
+.pre-weave i.w{top:-2%;height:104%;width:1px;background:rgba(237,231,220,.13);
+  transform:scaleY(0);transform-origin:top;animation:warpIn .42s var(--ease) forwards}
+.pre-weave i.f{left:-2%;width:104%;height:1px;transform:scaleX(0);transform-origin:left;
+  background:linear-gradient(90deg,transparent,rgba(203,176,124,.9) 18%,rgba(240,226,198,.95) 50%,rgba(203,176,124,.9) 82%,transparent);
+  box-shadow:0 0 12px rgba(203,176,124,.35);animation:weftIn .44s var(--ease) forwards}
+.pre-weave i.f.r{transform-origin:right}
+@keyframes warpIn{to{transform:scaleY(1)}}
+@keyframes weftIn{to{transform:scaleX(1)}}
+.pre-mark{position:relative;text-align:center;opacity:0;transform:scale(.92);
+  animation:markIn .55s var(--ease) .3s forwards}
+.pre-mark::before{content:"";position:absolute;left:50%;top:50%;width:min(420px,80vw);height:min(420px,80vw);
+  transform:translate(-50%,-50%);z-index:-1;
+  background:radial-gradient(circle,rgba(8,7,6,.96) 34%,rgba(8,7,6,.72) 56%,rgba(8,7,6,0) 74%)}
+.pre-mark svg{width:66px;height:66px;display:block;margin:0 auto 16px}
+.pre-mark b{display:block;font-family:"Bodoni Moda",serif;font-weight:400;font-size:clamp(1.25rem,4vw,1.6rem);
+  letter-spacing:.2em;color:var(--ecru)}
+.pre-mark i{display:block;font-style:normal;font-size:.66rem;letter-spacing:.44em;color:var(--champagne);margin-top:7px}
+@keyframes markIn{to{opacity:1;transform:none}}
 @keyframes draw{to{stroke-dashoffset:0}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
@@ -155,14 +167,28 @@ section:first-child{border-top:none}
 .loom .weft-l:nth-of-type(7){animation-delay:.6s,.6s}
 .loom .weft-l:nth-of-type(8){animation-delay:.7s,.7s}
 @keyframes breathe{0%,100%{opacity:.45}50%{opacity:1}}
-.shuttle{fill:var(--champagne-lt);opacity:.9;
-  animation:shuttle 4.2s var(--ease) infinite}
+.shuttle{fill:var(--champagne-lt);opacity:.9;filter:drop-shadow(0 0 6px rgba(240,226,198,.55));
+  animation:shuttle 14s linear infinite}
 @keyframes shuttle{
-  0%{transform:translate(0,0)}
-  45%{transform:translate(390px,0)}
-  50%{transform:translate(390px,32px)}
-  95%{transform:translate(0,32px)}
-  100%{transform:translate(0,64px)}}
+  0%{transform:translate(0,0);opacity:0}
+  2%{opacity:.95}
+  11%{transform:translate(390px,0)}
+  12.5%{transform:translate(390px,32px)}
+  23%{transform:translate(0,32px)}
+  24.5%{transform:translate(0,64px)}
+  35%{transform:translate(390px,64px)}
+  36.5%{transform:translate(390px,96px)}
+  47%{transform:translate(0,96px)}
+  48.5%{transform:translate(0,128px)}
+  59%{transform:translate(390px,128px)}
+  60.5%{transform:translate(390px,160px)}
+  71%{transform:translate(0,160px)}
+  72.5%{transform:translate(0,192px)}
+  83%{transform:translate(390px,192px)}
+  84.5%{transform:translate(390px,224px)}
+  95%{transform:translate(0,224px);opacity:.95}
+  98%{transform:translate(0,224px);opacity:0}
+  100%{transform:translate(0,0);opacity:0}}
 
 .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
 .btn{position:relative;overflow:hidden;display:inline-block;text-decoration:none;font-size:.88rem;
@@ -516,17 +542,14 @@ footer{border-top:1px solid var(--thread);padding:clamp(40px,5vw,64px) var(--rai
 </head>
 <body>
 <div id="pre">
-  <div>
-    <svg class="pl" viewBox="0 0 300 120" aria-hidden="true">
-      <line class="pw" x1="30" y1="10" x2="30" y2="110"/><line class="pw" x1="90" y1="10" x2="90" y2="110"/>
-      <line class="pw" x1="150" y1="10" x2="150" y2="110"/><line class="pw" x1="210" y1="10" x2="210" y2="110"/>
-      <line class="pw" x1="270" y1="10" x2="270" y2="110"/>
-      <path class="pf" d="M5 25 Q 40 15 75 25 T 145 25 T 215 25 T 295 25"/>
-      <path class="pf" d="M5 47 Q 40 57 75 47 T 145 47 T 215 47 T 295 47"/>
-      <path class="pf" d="M5 69 Q 40 59 75 69 T 145 69 T 215 69 T 295 69"/>
-      <path class="pf" d="M5 91 Q 40 101 75 91 T 145 91 T 215 91 T 295 91"/>
+  <div class="pre-weave" id="pre-weave" aria-hidden="true"></div>
+  <div class="pre-mark">
+    <svg viewBox="0 0 60 60" aria-hidden="true">
+      <rect x="30" y="4" width="36.77" height="36.77" transform="rotate(45 30 4)" fill="none" stroke="#CBB07C" stroke-width="1.2"/>
+      <rect x="30" y="13" width="24.04" height="24.04" transform="rotate(45 30 13)" fill="none" stroke="#CBB07C" stroke-width=".5" opacity=".5"/>
+      <text x="30" y="38" text-anchor="middle" font-family="Bodoni Moda, serif" font-style="italic" font-size="24" fill="#F0E2C6">W</text>
     </svg>
-    <div class="plabel">WORLD WEFT FABRIC</div>
+    <b>WORLD WEFT</b><i>FABRIC</i>
   </div>
 </div>
 
@@ -588,7 +611,7 @@ footer{border-top:1px solid var(--thread);padding:clamp(40px,5vw,64px) var(--rai
           <path class="weft-l" d="M10 206 Q 55 218 105 206 T 205 206 T 305 206 T 410 206"/>
           <path class="weft-l" d="M10 238 Q 55 226 105 238 T 205 238 T 305 238 T 410 238"/>
           <path class="weft-l" d="M10 270 Q 55 282 105 270 T 205 270 T 305 270 T 410 270"/>
-          <rect class="shuttle" x="8" y="100" width="18" height="5" rx="2.5"/>
+                  <rect class="shuttle" x="8" y="43.5" width="18" height="5" rx="2.5"/>
         </svg>
       </div>
     </div>
@@ -1032,10 +1055,23 @@ footer{border-top:1px solid var(--thread);padding:clamp(40px,5vw,64px) var(--rai
 (function(){
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---- preloader ---- */
-  window.addEventListener('load',function(){
-    setTimeout(function(){document.getElementById('pre').classList.add('done');},reduce?0:1300);
-  });
+  /* ---- preloader: weave the whole screen, then lift ---- */
+  var pre=document.getElementById('pre'),weave=document.getElementById('pre-weave'),t0=Date.now();
+  if(weave&&!reduce){
+    var W=window.innerWidth,H=window.innerHeight,
+        gw=W<620?48:66,gf=W<620?42:58,html='',i=0,j=0,x,y;
+    for(x=gw/2;x<W;x+=gw,i++)
+      html+='<i class="w" style="left:'+Math.round(x)+'px;animation-delay:'+(i*16)+'ms"></i>';
+    for(y=gf/2;y<H;y+=gf,j++)
+      html+='<i class="f'+(j%2?' r':'')+'" style="top:'+Math.round(y)+'px;animation-delay:'+(110+j*20)+'ms"></i>';
+    weave.innerHTML=html;
+  }
+  function preDone(){if(pre)pre.classList.add('done');}
+  if(reduce){setTimeout(preDone,150);}
+  else{
+    window.addEventListener('load',function(){setTimeout(preDone,Math.max(0,1150-(Date.now()-t0)));});
+    setTimeout(preDone,2600);
+  }
 
   /* ---- split headings into animated words ---- */
   document.querySelectorAll('.split').forEach(function(el){
